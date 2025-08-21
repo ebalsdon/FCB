@@ -1,0 +1,5 @@
+source("~/_FCB/Summer25/Markov/Rscripts/markov_01_etl.R")
+source("~/_FCB/Summer25/Markov/Rscripts/markov_02_decomposition.R")
+source("~/_FCB/Summer25/Markov/Rscripts/markov_03_forecast.R")
+source("~/_FCB/Summer25/Markov/Rscripts/markov_04_matrixview.R")
+source("~/_FCB/Summer25/Markov/Rscripts/markov_05_waterfall.R")
