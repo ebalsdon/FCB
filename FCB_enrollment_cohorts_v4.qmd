@@ -1,5 +1,5 @@
 ---
-title: "FCB enrollment cohorts"
+title: "FCB enrollment"
 author: "EMB"
 format:
   dashboard:
@@ -7,7 +7,7 @@ format:
 editor: visual
 ---
 
-# Page 1
+# FCB enrollment by cohort
 
 ```{r}
 load(here::here("_outputs/Rdata/data_image1.RData"))
@@ -70,7 +70,7 @@ make_heat_gt <- function(df, title, key_col = NULL,
 
 ```
 
-These tables show ...
+Tables show FCB pre-major (left) and upper-division (right) headcounts by term and by admissions cohort. First-time cohorts are labeled FT, transfer cohorts are labeled TR. The columns for F25 and S26 are forecasts from a non-homogeneous Markov chain model using historical transition probabilities for major migration, attrition, graduation, and promotion to upper-division status. (Data source: ASIR Cohort Analysis Report Builder, Enrollment Services reports on F25 incoming cohorts.) Use the "Expand" button at lower-right to view full tables.
 
 ::: {layout-ncol="2"}
 ```{r}
@@ -84,7 +84,15 @@ gt_ud
 ```
 :::
 
-# Page 2
+# Totals
+
+```{r}
+fcb_tot_df <- fcb_pre_df + fcb_ud_df 
+gt_tot <- make_heat_gt(fcb_tot_df, title = "FCB total enrollment (by cohort)")
+gt_tot
+```
+
+# Waterfall table
 
 ```{r}
 # 1) Prepare (order columns, tidy percent)
@@ -101,7 +109,7 @@ tbl <- fcbud_waterfall %>%
 gt(tbl, groupname_col = "Group") %>%
   tab_header(
     title = md("**FCB upper-division headcount change: F23 → F24**"),
-    subtitle = "Waterfall rows with factor decomposition (A–E)"
+    subtitle = "Waterfall rows with factor decomposition"
   ) %>%
   tab_spanner(label = "Factors (Δ decomposition)", columns = c(A, B, C, D, E)) %>%
   cols_label(
@@ -134,7 +142,7 @@ gt(tbl, groupname_col = "Group") %>%
 
 ```
 
-# Page 3
+# Waterfall visual
 
 ```{r}
 ## Classic Waterfall F23 --> F24
@@ -297,7 +305,7 @@ plot_ly(
 
 ```
 
-# Page 4
+# Decomposition visual
 
 ```{r}
 
