@@ -1,0 +1,3347 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="EMB">
+
+<title>Test</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="Test2_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Test2_files/libs/quarto-html/quarto.js"></script>
+<script src="Test2_files/libs/quarto-html/popper.min.js"></script>
+<script src="Test2_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Test2_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Test2_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Test2_files/libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Test2_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Test2_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Test2_files/libs/bootstrap/bootstrap-f9c3a980a829ab9d6a74b295b7269fb0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="Test2_files/libs/quarto-dashboard/quarto-dashboard.js"></script>
+<script src="Test2_files/libs/quarto-dashboard/stickythead.js"></script>
+<script src="Test2_files/libs/quarto-dashboard/datatables.min.js" kdttablesentinel="true"></script>
+<script src="Test2_files/libs/quarto-dashboard/pdfmake.min.js" kdttablesentinel="true"></script>
+<script src="Test2_files/libs/quarto-dashboard/vfs_fonts.js" kdttablesentinel="true"></script>
+<script src="Test2_files/libs/quarto-dashboard/web-components.js" type="module"></script>
+<script src="Test2_files/libs/quarto-dashboard/components.js"></script>
+<link href="Test2_files/libs/quarto-dashboard/datatables.min.css" rel="stylesheet" kdttablesentinel="true">
+<link href="Test2_files/libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+
+<script src="Test2_files/libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+
+<script src="Test2_files/libs/plotly-binding-4.11.0/plotly.js"></script>
+
+<script src="Test2_files/libs/typedarray-0.1/typedarray.min.js"></script>
+
+<script src="Test2_files/libs/jquery-3.5.1/jquery.min.js"></script>
+
+<link href="Test2_files/libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+
+<script src="Test2_files/libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+
+<link href="Test2_files/libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
+
+<script src="Test2_files/libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+
+
+
+</head>
+
+<body class="quarto-dashboard dashboard-fill fullcontent">
+
+<header id="quarto-dashboard-header">
+<nav class="navbar navbar-expand-md slim" data-bs-theme="dark">
+  <div class="navbar-container container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-controls="dashboard-collapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>    
+
+
+    <div class="navbar-brand-container">       
+
+      <div class="navbar-title">
+        <div class="navbar-title-text"><a href="#">Test</a></div>
+        
+        <div class="navbar-author">EMB</div>
+      </div>
+    </div>
+<div id="dashboard-collapse" class="navbar-collapse collapse"><ul class="navbar-nav navbar-nav-scroll me-auto" role="tablist"><li class="nav-item" role="presentation"><a id="tab-page-1" class="nav-link active" data-bs-toggle="tab" role="tab" data-bs-target="#page-1" data-scrolling="false" href="#page-1" aria-controls="page-1" aria-selected="true"><span class="nav-link-text">Page 1</span></a></li><li class="nav-item" role="presentation"><a id="tab-page-2" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#page-2" data-scrolling="false" href="#page-2" aria-controls="page-2" aria-selected="false"><span class="nav-link-text">Page 2</span></a></li><li class="nav-item" role="presentation"><a id="tab-page-3" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#page-3" data-scrolling="false" href="#page-3" aria-controls="page-3" aria-selected="false"><span class="nav-link-text">Page 3</span></a></li><li class="nav-item" role="presentation"><a id="tab-page-4" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#page-4" data-scrolling="false" href="#page-4" aria-controls="page-4" aria-selected="false"><span class="nav-link-text">Page 4</span></a></li><li class="nav-item" role="presentation"><a id="tab-page-5" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#page-5" data-scrolling="false" href="#page-5" aria-controls="page-5" aria-selected="false"><span class="nav-link-text">Page 5</span></a></li></ul></div></div>
+</nav>
+</header>
+<div class="page-layout-custom quarto-dashboard-content bslib-gap-spacing html-fill-container bslib-page-fill quarto-dashboard-pages">  
+
+<div class="bslib-grid-item html-fill-item tab-content bslib-grid" data-layout="fill" style="display: grid; grid-template-rows: minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
+<div id="page-1" class="dashboard-page tab-pane show active html-fill-item html-fill-container" data-orientation="rows" aria-labelledby="tab-page-1">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div class="plotly html-widget html-fill-item html-fill-container" id="htmlwidget-243b76dfba48ca9d7f71" style="width:100%;height:406px;"></div>
+<script type="application/json" data-for="htmlwidget-243b76dfba48ca9d7f71">{"x":{"data":[{"x":[6.5800000000000001,6.5800000000000001,7.4199999999999999,7.4199999999999999,6.5800000000000001],"y":[4305,4303,4303,4305,4305],"text":"Other<br>Δ = -2","type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"transparent","dash":"solid"},"fill":"toself","fillcolor":"rgba(217,95,2,1)","hoveron":"fills","name":"Decrease","legendgroup":"Decrease","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[4.5800000000000001,4.5800000000000001,5.4199999999999999,5.4199999999999999,4.5800000000000001],"y":[4319,4282,4282,4319,4319],"text":"TR20/TR21 (S7)<br>Δ = -37","type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"transparent","dash":"solid"},"fill":"toself","fillcolor":"rgba(217,95,2,1)","hoveron":"fills","name":"Decrease","legendgroup":"Decrease","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[7.5800000000000001,7.5800000000000001,8.4199999999999999,8.4199999999999999,7.5800000000000001],"y":[2500,4303,4303,2500,2500],"text":"F24: 4,303","type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"transparent","dash":"solid"},"fill":"toself","fillcolor":"rgba(74,74,74,1)","hoveron":"fills","name":"End","legendgroup":"End","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[3.5800000000000001,3.5800000000000001,4.4199999999999999,4.4199999999999999,3.5800000000000001],"y":[4265,4319,4319,4265,4265],"text":"FT20/FT21 (S7)<br>Δ = 54","type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"transparent","dash":"solid"},"fill":"toself","fillcolor":"rgba(27,158,119,1)","hoveron":"fills","name":"Increase","legendgroup":"Increase","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1.5800000000000001,1.5800000000000001,2.4199999999999999,2.4199999999999999,1.5800000000000001],"y":[3802,4062,4062,3802,3802],"text":"FT21/FT22 (S5)<br>Δ = 260","type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"transparent","dash":"solid"},"fill":"toself","fillcolor":"rgba(27,158,119,1)","hoveron":"fills","name":"Increase","legendgroup":"Increase","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2.5800000000000001,2.5800000000000001,3.4199999999999999,3.4199999999999999,2.5800000000000001],"y":[4062,4265,4265,4062,4062],"text":"TR22/TR23 (S3)<br>Δ = 203","type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"transparent","dash":"solid"},"fill":"toself","fillcolor":"rgba(27,158,119,1)","hoveron":"fills","name":"Increase","legendgroup":"Increase","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[5.5800000000000001,5.5800000000000001,6.4199999999999999,6.4199999999999999,5.5800000000000001],"y":[4282,4305,4305,4282,4282],"text":"TR23/TR24 (S1)<br>Δ = 23","type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"transparent","dash":"solid"},"fill":"toself","fillcolor":"rgba(27,158,119,1)","hoveron":"fills","name":"Increase","legendgroup":"Increase","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0.58000000000000007,0.58000000000000007,1.4199999999999999,1.4199999999999999,0.58000000000000007],"y":[2500,3802,3802,2500,2500],"text":"F23: 3,802","type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"transparent","dash":"solid"},"fill":"toself","fillcolor":"rgba(107,107,107,1)","hoveron":"fills","name":"Start","legendgroup":"Start","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2,3,null,3,4,null,4,5,null,5,6,null,6,7,null,7,8],"y":[4062,4062,null,4265,4265,null,4319,4319,null,4282,4282,null,4305,4305,null,4303,4303],"text":"","type":"scatter","mode":"lines","line":{"width":1.3228346456692912,"color":"rgba(140,140,140,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1,8],"y":[3802,4303],"text":["3,802","4,303"],"hovertext":["",""],"textfont":{"size":13.228346456692915,"color":"rgba(0,0,0,1)"},"type":"scatter","mode":"text","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":47.88044831880449,"r":7.9701120797011216,"b":77.468403140283698,"l":59.775840597758425},"font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402243},"title":{"text":"FCB upper-division headcount","font":{"color":"rgba(0,0,0,1)","family":"","size":19.128268991282692},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.42320000000000008,9.0472000000000001],"tickmode":"array","ticktext":["F23","FT21/FT22 (S5)","TR22/TR23 (S3)","FT20/FT21 (S7)","TR20/TR21 (S7)","TR23/TR24 (S1)","Other","F24"],"tickvals":[1,2,3,4,5,6,7,8],"categoryorder":"array","categoryarray":["F23","FT21/FT22 (S5)","TR22/TR23 (S3)","FT20/FT21 (S7)","TR20/TR21 (S7)","TR23/TR24 (S1)","Other","F24"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.9850560398505608,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":12.7521793275218},"tickangle":-28,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.72455564360919278,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402243}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[2409.0500000000002,4409.9499999999998],"tickmode":"array","ticktext":["2,500","3,000","3,500","4,000"],"tickvals":[2500,3000,3500,4000],"categoryorder":"array","categoryarray":["2,500","3,000","3,500","4,000"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.9850560398505608,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.72455564360919278,"zeroline":false,"anchor":"x","title":{"text":"Headcount","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402243}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"6fb461c66772":{"xmin":{},"xmax":{},"ymin":{},"ymax":{},"fill":{},"text":{},"type":"scatter"},"6fb459c8563":{"x":{},"y":{},"xend":{},"yend":{}},"6fb414a922c4":{"x":{},"y":{},"label":{}}},"cur_data":"6fb461c66772","visdat":{"6fb461c66772":["function (y) ","x"],"6fb459c8563":["function (y) ","x"],"6fb414a922c4":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div>
+<div id="page-2" class="dashboard-page tab-pane grid-skip html-fill-item html-fill-container" data-orientation="rows" aria-labelledby="tab-page-2">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<img src="Test2_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid quarto-dashboard-img-contain">
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div>
+<div id="page-3" class="dashboard-page tab-pane grid-skip html-fill-item html-fill-container" data-orientation="rows" aria-labelledby="tab-page-3">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div class="plotly html-widget html-fill-item html-fill-container" id="htmlwidget-aca06efcfd9349dc4418" style="width:100%;height:406px;"></div>
+<script type="application/json" data-for="htmlwidget-aca06efcfd9349dc4418">{"x":{"data":[{"orientation":"v","width":[0.75,0.75,0.75,0.75,0.75],"base":[192.19999999999999,174.09999999999999,74.099999999999994,3.7000000000000002,93.400000000000006],"x":[1,2,3,4,5],"y":[58.200000000000017,27.300000000000011,97.5,4.4999999999999991,21.799999999999997],"text":["FT21/FT22 (S5)<br>% FCB: 58<br>Total contribution (Δ): 260","TR22/TR23 (S3)<br>% FCB: 27<br>Total contribution (Δ): 203","FT20/FT21 (S7)<br>% FCB: 98<br>Total contribution (Δ): 54","TR20/TR21 (S7)<br>% FCB: 4<br>Total contribution (Δ): -37","TR23/TR24 (S1)<br>% FCB: 22<br>Total contribution (Δ): 23"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(248,118,109,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"% FCB","legendgroup":"% FCB","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.75,0.75,0.75,0.75,0.75],"base":[4.7000000000000002,36.5,0,-46.099999999999994,-92.200000000000003],"x":[1,2,3,4,5],"y":[187.5,137.59999999999999,74.099999999999994,8.3999999999999986,92.200000000000003],"text":["FT21/FT22 (S5)<br>Admissions: 188<br>Total contribution (Δ): 260","TR22/TR23 (S3)<br>Admissions: 138<br>Total contribution (Δ): 203","FT20/FT21 (S7)<br>Admissions: 74<br>Total contribution (Δ): 54","TR20/TR21 (S7)<br>Admissions: -8<br>Total contribution (Δ): -37","TR23/TR24 (S1)<br>Admissions: -92<br>Total contribution (Δ): 23"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(163,165,0,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Admissions","legendgroup":"Admissions","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.75,0.75,0.75,0.75,0.75],"base":[3.2000000000000002,22.899999999999999,-113.8,0,93.400000000000006],"x":[1,2,3,4,5],"y":[1.5,13.600000000000001,90.700000000000003,3.7000000000000002,0],"text":["FT21/FT22 (S5)<br>Net transfers: 2<br>Total contribution (Δ): 260","TR22/TR23 (S3)<br>Net transfers: 14<br>Total contribution (Δ): 203","FT20/FT21 (S7)<br>Net transfers: -91<br>Total contribution (Δ): 54","TR20/TR21 (S7)<br>Net transfers: 4<br>Total contribution (Δ): -37","TR23/TR24 (S1)<br>Net transfers: 0<br>Total contribution (Δ): 23"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(0,191,125,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Net transfers","legendgroup":"Net transfers","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.75,0.75,0.75,0.75,0.75],"base":[-27.199999999999999,-19.899999999999999,-23.099999999999998,-37.699999999999996,0],"x":[1,2,3,4,5],"y":[27.199999999999999,19.899999999999999,1.3999999999999986,0.39999999999999858,93.400000000000006],"text":["FT21/FT22 (S5)<br>Promotion: -27<br>Total contribution (Δ): 260","TR22/TR23 (S3)<br>Promotion: -20<br>Total contribution (Δ): 203","FT20/FT21 (S7)<br>Promotion: -1<br>Total contribution (Δ): 54","TR20/TR21 (S7)<br>Promotion: 0<br>Total contribution (Δ): -37","TR23/TR24 (S1)<br>Promotion: 93<br>Total contribution (Δ): 23"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(0,176,246,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Promotion","legendgroup":"Promotion","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.75,0.75,0.75,0.75,0.75],"base":[0,0,-21.699999999999999,-37.299999999999997,0],"x":[1,2,3,4,5],"y":[3.2000000000000002,22.899999999999999,21.699999999999999,37.299999999999997,0],"text":["FT21/FT22 (S5)<br>Retention: 3<br>Total contribution (Δ): 260","TR22/TR23 (S3)<br>Retention: 23<br>Total contribution (Δ): 203","FT20/FT21 (S7)<br>Retention: -22<br>Total contribution (Δ): 54","TR20/TR21 (S7)<br>Retention: -37<br>Total contribution (Δ): -37","TR23/TR24 (S1)<br>Retention: 0<br>Total contribution (Δ): 23"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(231,107,243,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Retention","legendgroup":"Retention","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0.40000000000000002,5.5999999999999996],"y":[0,0],"text":"","type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"rgba(153,153,153,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":47.88044831880449,"r":7.9701120797011216,"b":77.468403140283698,"l":53.399750933997524},"font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402243},"title":{"text":"Decomposition of cohort contributions to change F23 → F24","font":{"color":"rgba(0,0,0,1)","family":"","size":19.128268991282692},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,5.5999999999999996],"tickmode":"array","ticktext":["FT21/FT22 (S5)","TR22/TR23 (S3)","FT20/FT21 (S7)","TR20/TR21 (S7)","TR23/TR24 (S1)"],"tickvals":[1,2,3,4,5],"categoryorder":"array","categoryarray":["FT21/FT22 (S5)","TR22/TR23 (S3)","FT20/FT21 (S7)","TR20/TR21 (S7)","TR23/TR24 (S1)"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.9850560398505608,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":12.7521793275218},"tickangle":-28,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.72455564360919278,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402243}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-132.00999999999999,268.61000000000001],"tickmode":"array","ticktext":["-100","0","100","200"],"tickvals":[-100,0,100,200],"categoryorder":"array","categoryarray":["-100","0","100","200"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.9850560398505608,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.72455564360919278,"zeroline":false,"anchor":"x","title":{"text":"Headcount contribution","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402243}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"title":{"text":"Factors","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402243}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"6fb474846ae1":{"x":{},"y":{},"fill":{},"text":{},"type":"bar"},"6fb42fb72921":{"yintercept":{}}},"cur_data":"6fb474846ae1","visdat":{"6fb474846ae1":["function (y) ","x"],"6fb42fb72921":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div>
+<div id="page-4" class="dashboard-page tab-pane grid-skip html-fill-item html-fill-container" data-orientation="rows" aria-labelledby="tab-page-4">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div id="shmfwnqwao" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;" class="html-fill-item html-fill-container">
+<style>#shmfwnqwao table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#shmfwnqwao thead, #shmfwnqwao tbody, #shmfwnqwao tfoot, #shmfwnqwao tr, #shmfwnqwao td, #shmfwnqwao th {
+  border-style: none;
+}
+
+#shmfwnqwao p {
+  margin: 0;
+  padding: 0;
+}
+
+#shmfwnqwao .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#shmfwnqwao .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#shmfwnqwao .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#shmfwnqwao .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#shmfwnqwao .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#shmfwnqwao .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#shmfwnqwao .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#shmfwnqwao .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#shmfwnqwao .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#shmfwnqwao .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#shmfwnqwao .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#shmfwnqwao .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#shmfwnqwao .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#shmfwnqwao .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#shmfwnqwao .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#shmfwnqwao .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#shmfwnqwao .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#shmfwnqwao .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#shmfwnqwao .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#shmfwnqwao .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#shmfwnqwao .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#shmfwnqwao .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#shmfwnqwao .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#shmfwnqwao .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#shmfwnqwao .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#shmfwnqwao .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#shmfwnqwao .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#shmfwnqwao .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#shmfwnqwao .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#shmfwnqwao .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#shmfwnqwao .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#shmfwnqwao .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#shmfwnqwao .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#shmfwnqwao .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#shmfwnqwao .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#shmfwnqwao .gt_left {
+  text-align: left;
+}
+
+#shmfwnqwao .gt_center {
+  text-align: center;
+}
+
+#shmfwnqwao .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#shmfwnqwao .gt_font_normal {
+  font-weight: normal;
+}
+
+#shmfwnqwao .gt_font_bold {
+  font-weight: bold;
+}
+
+#shmfwnqwao .gt_font_italic {
+  font-style: italic;
+}
+
+#shmfwnqwao .gt_super {
+  font-size: 65%;
+}
+
+#shmfwnqwao .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#shmfwnqwao .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#shmfwnqwao .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#shmfwnqwao .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#shmfwnqwao .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#shmfwnqwao .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#shmfwnqwao .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#shmfwnqwao .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#shmfwnqwao div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+<col style="width: 9%">
+</colgroup>
+<thead>
+<tr class="gt_heading header">
+<th colspan="11" class="gt_heading gt_title gt_font_normal"><strong>FCB upper-division headcount change: F23 → F24</strong></th>
+</tr>
+<tr class="gt_heading even">
+<th colspan="11" class="gt_heading gt_subtitle gt_font_normal gt_bottom_border">Waterfall rows with factor decomposition (A–E)</th>
+</tr>
+<tr class="gt_col_headings gt_spanner_row header">
+<th rowspan="2" id="Cohort" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Cohort (pair)</th>
+<th rowspan="2" id="Semester" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Semester</th>
+<th rowspan="2" id="F23" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">F23</th>
+<th rowspan="2" id="F24" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">F24</th>
+<th rowspan="2" id="Diff" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Δ</th>
+<th rowspan="2" id="Pct_of_Total" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">% of total</th>
+<th colspan="5" id="Factors (Δ decomposition)" class="gt_center gt_columns_top_border gt_column_spanner_outer" data-quarto-table-cell-role="th" scope="colgroup"><div class="gt_column_spanner html-fill-item html-fill-container">
+Factors (Δ decomposition)
+</div></th>
+</tr>
+<tr class="gt_col_headings even">
+<th id="A" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Admissions</th>
+<th id="B" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">% FCB</th>
+<th id="C" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Retention</th>
+<th id="D" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Net transfers</th>
+<th id="E" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Promotion</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="gt_group_heading_row odd">
+<td colspan="11" id="FT cohorts" class="gt_group_heading" data-quarto-table-cell-role="th" scope="colgroup">FT cohorts</td>
+</tr>
+<tr class="gt_row_group_first even">
+<td class="gt_row gt_left" headers="FT cohorts  Cohort">FT23/FT24</td>
+<td class="gt_row gt_right" headers="FT cohorts  Semester">1</td>
+<td class="gt_row gt_right" headers="FT cohorts  F23">0</td>
+<td class="gt_row gt_right" headers="FT cohorts  F24">0</td>
+<td class="gt_row gt_right" headers="FT cohorts  Diff" style="background-color: #1B9E77; color: #FFFFFF">0</td>
+<td class="gt_row gt_right" headers="FT cohorts  Pct_of_Total">0.0%</td>
+<td class="gt_row gt_right" headers="FT cohorts  A">NA</td>
+<td class="gt_row gt_right" headers="FT cohorts  B">NA</td>
+<td class="gt_row gt_right" headers="FT cohorts  C">NA</td>
+<td class="gt_row gt_right" headers="FT cohorts  D">NA</td>
+<td class="gt_row gt_right" headers="FT cohorts  E">NA</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left gt_striped" headers="FT cohorts  Cohort">FT22/FT23</td>
+<td class="gt_row gt_right gt_striped" headers="FT cohorts  Semester">3</td>
+<td class="gt_row gt_right gt_striped" headers="FT cohorts  F23">25</td>
+<td class="gt_row gt_right gt_striped" headers="FT cohorts  F24">24</td>
+<td class="gt_row gt_right gt_striped" headers="FT cohorts  Diff" style="background-color: #D95F02; color: #FFFFFF">−1</td>
+<td class="gt_row gt_right gt_striped" headers="FT cohorts  Pct_of_Total">−0.2%</td>
+<td class="gt_row gt_right gt_striped" headers="FT cohorts  A">−2</td>
+<td class="gt_row gt_right gt_striped" headers="FT cohorts  B">0</td>
+<td class="gt_row gt_right gt_striped" headers="FT cohorts  C">0</td>
+<td class="gt_row gt_right gt_striped" headers="FT cohorts  D">0</td>
+<td class="gt_row gt_right gt_striped" headers="FT cohorts  E">1</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="FT cohorts  Cohort">FT21/FT22</td>
+<td class="gt_row gt_right" headers="FT cohorts  Semester">5</td>
+<td class="gt_row gt_right" headers="FT cohorts  F23">735</td>
+<td class="gt_row gt_right" headers="FT cohorts  F24">995</td>
+<td class="gt_row gt_right" headers="FT cohorts  Diff" style="background-color: #1B9E77; color: #FFFFFF">260</td>
+<td class="gt_row gt_right" headers="FT cohorts  Pct_of_Total">51.9%</td>
+<td class="gt_row gt_right" headers="FT cohorts  A">188</td>
+<td class="gt_row gt_right" headers="FT cohorts  B">58</td>
+<td class="gt_row gt_right" headers="FT cohorts  C">3</td>
+<td class="gt_row gt_right" headers="FT cohorts  D">2</td>
+<td class="gt_row gt_right" headers="FT cohorts  E">−27</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left gt_striped" headers="FT cohorts  Cohort">FT20/FT21</td>
+<td class="gt_row gt_right gt_striped" headers="FT cohorts  Semester">7</td>
+<td class="gt_row gt_right gt_striped" headers="FT cohorts  F23">820</td>
+<td class="gt_row gt_right gt_striped" headers="FT cohorts  F24">874</td>
+<td class="gt_row gt_right gt_striped" headers="FT cohorts  Diff" style="background-color: #1B9E77; color: #FFFFFF">54</td>
+<td class="gt_row gt_right gt_striped" headers="FT cohorts  Pct_of_Total">10.8%</td>
+<td class="gt_row gt_right gt_striped" headers="FT cohorts  A">74</td>
+<td class="gt_row gt_right gt_striped" headers="FT cohorts  B">98</td>
+<td class="gt_row gt_right gt_striped" headers="FT cohorts  C">−22</td>
+<td class="gt_row gt_right gt_striped" headers="FT cohorts  D">−91</td>
+<td class="gt_row gt_right gt_striped" headers="FT cohorts  E">−1</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="FT cohorts  Cohort">FT19/FT20</td>
+<td class="gt_row gt_right" headers="FT cohorts  Semester">9</td>
+<td class="gt_row gt_right" headers="FT cohorts  F23">162</td>
+<td class="gt_row gt_right" headers="FT cohorts  F24">148</td>
+<td class="gt_row gt_right" headers="FT cohorts  Diff" style="background-color: #D95F02; color: #FFFFFF">−14</td>
+<td class="gt_row gt_right" headers="FT cohorts  Pct_of_Total">−2.8%</td>
+<td class="gt_row gt_right" headers="FT cohorts  A">−13</td>
+<td class="gt_row gt_right" headers="FT cohorts  B">7</td>
+<td class="gt_row gt_right" headers="FT cohorts  C">−8</td>
+<td class="gt_row gt_right" headers="FT cohorts  D">12</td>
+<td class="gt_row gt_right" headers="FT cohorts  E">4</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left gt_striped" headers="FT cohorts  Cohort">FT18/FT19</td>
+<td class="gt_row gt_right gt_striped" headers="FT cohorts  Semester">11</td>
+<td class="gt_row gt_right gt_striped" headers="FT cohorts  F23">32</td>
+<td class="gt_row gt_right gt_striped" headers="FT cohorts  F24">38</td>
+<td class="gt_row gt_right gt_striped" headers="FT cohorts  Diff" style="background-color: #1B9E77; color: #FFFFFF">6</td>
+<td class="gt_row gt_right gt_striped" headers="FT cohorts  Pct_of_Total">1.2%</td>
+<td class="gt_row gt_right gt_striped" headers="FT cohorts  A">−3</td>
+<td class="gt_row gt_right gt_striped" headers="FT cohorts  B">−2</td>
+<td class="gt_row gt_right gt_striped" headers="FT cohorts  C">−10</td>
+<td class="gt_row gt_right gt_striped" headers="FT cohorts  D">11</td>
+<td class="gt_row gt_right gt_striped" headers="FT cohorts  E">1</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left" headers="FT cohorts  Cohort">FT17/FT18</td>
+<td class="gt_row gt_right" headers="FT cohorts  Semester">13</td>
+<td class="gt_row gt_right" headers="FT cohorts  F23">8</td>
+<td class="gt_row gt_right" headers="FT cohorts  F24">11</td>
+<td class="gt_row gt_right" headers="FT cohorts  Diff" style="background-color: #1B9E77; color: #FFFFFF">3</td>
+<td class="gt_row gt_right" headers="FT cohorts  Pct_of_Total">0.6%</td>
+<td class="gt_row gt_right" headers="FT cohorts  A">1</td>
+<td class="gt_row gt_right" headers="FT cohorts  B">0</td>
+<td class="gt_row gt_right" headers="FT cohorts  C">2</td>
+<td class="gt_row gt_right" headers="FT cohorts  D">−3</td>
+<td class="gt_row gt_right" headers="FT cohorts  E">0</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left gt_striped" headers="FT cohorts  Cohort">FT17</td>
+<td class="gt_row gt_right gt_striped" headers="FT cohorts  Semester">15</td>
+<td class="gt_row gt_right gt_striped" headers="FT cohorts  F23">NA</td>
+<td class="gt_row gt_right gt_striped" headers="FT cohorts  F24">2</td>
+<td class="gt_row gt_right gt_striped" headers="FT cohorts  Diff" style="background-color: #1B9E77; color: #FFFFFF">2</td>
+<td class="gt_row gt_right gt_striped" headers="FT cohorts  Pct_of_Total">0.4%</td>
+<td class="gt_row gt_right gt_striped" headers="FT cohorts  A">NA</td>
+<td class="gt_row gt_right gt_striped" headers="FT cohorts  B">NA</td>
+<td class="gt_row gt_right gt_striped" headers="FT cohorts  C">NA</td>
+<td class="gt_row gt_right gt_striped" headers="FT cohorts  D">NA</td>
+<td class="gt_row gt_right gt_striped" headers="FT cohorts  E">NA</td>
+</tr>
+<tr class="gt_group_heading_row even">
+<td colspan="11" id="TR cohorts" class="gt_group_heading" data-quarto-table-cell-role="th" scope="colgroup">TR cohorts</td>
+</tr>
+<tr class="gt_row_group_first odd">
+<td class="gt_row gt_left" headers="TR cohorts  Cohort">TR23/TR24</td>
+<td class="gt_row gt_right" headers="TR cohorts  Semester">1</td>
+<td class="gt_row gt_right" headers="TR cohorts  F23">804</td>
+<td class="gt_row gt_right" headers="TR cohorts  F24">827</td>
+<td class="gt_row gt_right" headers="TR cohorts  Diff" style="background-color: #1B9E77; color: #FFFFFF">23</td>
+<td class="gt_row gt_right" headers="TR cohorts  Pct_of_Total">4.6%</td>
+<td class="gt_row gt_right" headers="TR cohorts  A">−92</td>
+<td class="gt_row gt_right" headers="TR cohorts  B">22</td>
+<td class="gt_row gt_right" headers="TR cohorts  C">0</td>
+<td class="gt_row gt_right" headers="TR cohorts  D">0</td>
+<td class="gt_row gt_right" headers="TR cohorts  E">93</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="TR cohorts  Cohort">TR22/TR23</td>
+<td class="gt_row gt_right gt_striped" headers="TR cohorts  Semester">3</td>
+<td class="gt_row gt_right gt_striped" headers="TR cohorts  F23">852</td>
+<td class="gt_row gt_right gt_striped" headers="TR cohorts  F24">1,055</td>
+<td class="gt_row gt_right gt_striped" headers="TR cohorts  Diff" style="background-color: #1B9E77; color: #FFFFFF">203</td>
+<td class="gt_row gt_right gt_striped" headers="TR cohorts  Pct_of_Total">40.5%</td>
+<td class="gt_row gt_right gt_striped" headers="TR cohorts  A">138</td>
+<td class="gt_row gt_right gt_striped" headers="TR cohorts  B">27</td>
+<td class="gt_row gt_right gt_striped" headers="TR cohorts  C">23</td>
+<td class="gt_row gt_right gt_striped" headers="TR cohorts  D">14</td>
+<td class="gt_row gt_right gt_striped" headers="TR cohorts  E">−20</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="TR cohorts  Cohort">TR21/TR22</td>
+<td class="gt_row gt_right" headers="TR cohorts  Semester">5</td>
+<td class="gt_row gt_right" headers="TR cohorts  F23">265</td>
+<td class="gt_row gt_right" headers="TR cohorts  F24">246</td>
+<td class="gt_row gt_right" headers="TR cohorts  Diff" style="background-color: #D95F02; color: #FFFFFF">−19</td>
+<td class="gt_row gt_right" headers="TR cohorts  Pct_of_Total">−3.8%</td>
+<td class="gt_row gt_right" headers="TR cohorts  A">13</td>
+<td class="gt_row gt_right" headers="TR cohorts  B">18</td>
+<td class="gt_row gt_right" headers="TR cohorts  C">−27</td>
+<td class="gt_row gt_right" headers="TR cohorts  D">0</td>
+<td class="gt_row gt_right" headers="TR cohorts  E">−3</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="TR cohorts  Cohort">TR20/TR21</td>
+<td class="gt_row gt_right gt_striped" headers="TR cohorts  Semester">7</td>
+<td class="gt_row gt_right gt_striped" headers="TR cohorts  F23">83</td>
+<td class="gt_row gt_right gt_striped" headers="TR cohorts  F24">46</td>
+<td class="gt_row gt_right gt_striped" headers="TR cohorts  Diff" style="background-color: #D95F02; color: #FFFFFF">−37</td>
+<td class="gt_row gt_right gt_striped" headers="TR cohorts  Pct_of_Total">−7.4%</td>
+<td class="gt_row gt_right gt_striped" headers="TR cohorts  A">−8</td>
+<td class="gt_row gt_right gt_striped" headers="TR cohorts  B">4</td>
+<td class="gt_row gt_right gt_striped" headers="TR cohorts  C">−37</td>
+<td class="gt_row gt_right gt_striped" headers="TR cohorts  D">4</td>
+<td class="gt_row gt_right gt_striped" headers="TR cohorts  E">0</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" headers="TR cohorts  Cohort">TR19/TR20</td>
+<td class="gt_row gt_right" headers="TR cohorts  Semester">9</td>
+<td class="gt_row gt_right" headers="TR cohorts  F23">16</td>
+<td class="gt_row gt_right" headers="TR cohorts  F24">29</td>
+<td class="gt_row gt_right" headers="TR cohorts  Diff" style="background-color: #1B9E77; color: #FFFFFF">13</td>
+<td class="gt_row gt_right" headers="TR cohorts  Pct_of_Total">2.6%</td>
+<td class="gt_row gt_right" headers="TR cohorts  A">2</td>
+<td class="gt_row gt_right" headers="TR cohorts  B">0</td>
+<td class="gt_row gt_right" headers="TR cohorts  C">8</td>
+<td class="gt_row gt_right" headers="TR cohorts  D">1</td>
+<td class="gt_row gt_right" headers="TR cohorts  E">0</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" headers="TR cohorts  Cohort">TR19</td>
+<td class="gt_row gt_right gt_striped" headers="TR cohorts  Semester">11</td>
+<td class="gt_row gt_right gt_striped" headers="TR cohorts  F23">NA</td>
+<td class="gt_row gt_right gt_striped" headers="TR cohorts  F24">8</td>
+<td class="gt_row gt_right gt_striped" headers="TR cohorts  Diff" style="background-color: #1B9E77; color: #FFFFFF">8</td>
+<td class="gt_row gt_right gt_striped" headers="TR cohorts  Pct_of_Total">1.6%</td>
+<td class="gt_row gt_right gt_striped" headers="TR cohorts  A">NA</td>
+<td class="gt_row gt_right gt_striped" headers="TR cohorts  B">NA</td>
+<td class="gt_row gt_right gt_striped" headers="TR cohorts  C">NA</td>
+<td class="gt_row gt_right gt_striped" headers="TR cohorts  D">NA</td>
+<td class="gt_row gt_right gt_striped" headers="TR cohorts  E">NA</td>
+</tr>
+<tr class="gt_group_heading_row odd">
+<td colspan="11" id="Totals" class="gt_group_heading" data-quarto-table-cell-role="th" style="font-weight: bold" scope="colgroup">Totals</td>
+</tr>
+<tr class="gt_row_group_first even">
+<td class="gt_row gt_left" headers="Totals  Cohort">Total</td>
+<td class="gt_row gt_right" headers="Totals  Semester">NA</td>
+<td class="gt_row gt_right" headers="Totals  F23">3,802</td>
+<td class="gt_row gt_right" headers="Totals  F24">4,303</td>
+<td class="gt_row gt_right" headers="Totals  Diff" style="background-color: #1B9E77; color: #FFFFFF">501</td>
+<td class="gt_row gt_right" headers="Totals  Pct_of_Total">100.0%</td>
+<td class="gt_row gt_right" headers="Totals  A">NA</td>
+<td class="gt_row gt_right" headers="Totals  B">NA</td>
+<td class="gt_row gt_right" headers="Totals  C">NA</td>
+<td class="gt_row gt_right" headers="Totals  D">NA</td>
+<td class="gt_row gt_right" headers="Totals  E">NA</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div>
+<div id="page-5" class="dashboard-page tab-pane grid-skip html-fill-item html-fill-container" data-orientation="rows" aria-labelledby="tab-page-5">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, max-content) minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="card html-fill-item html-fill-container bslib-card" data-fill="false" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<p>These tables show …</p>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+<div class="card html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="html-fill-item html-fill-container">
+
+</div>
+<div class="quarto-layout-panel html-fill-item html-fill-container" data-layout-ncol="2">
+<div class="quarto-layout-row html-fill-item html-fill-container">
+<div class="cell quarto-layout-cell html-fill-item html-fill-container" style="flex-basis: 50.0%;justify-content: center;">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div id="xopcwpggci" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;" class="html-fill-item html-fill-container">
+<style>#xopcwpggci table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#xopcwpggci thead, #xopcwpggci tbody, #xopcwpggci tfoot, #xopcwpggci tr, #xopcwpggci td, #xopcwpggci th {
+  border-style: none;
+}
+
+#xopcwpggci p {
+  margin: 0;
+  padding: 0;
+}
+
+#xopcwpggci .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#xopcwpggci .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#xopcwpggci .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#xopcwpggci .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#xopcwpggci .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#xopcwpggci .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xopcwpggci .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#xopcwpggci .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#xopcwpggci .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#xopcwpggci .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#xopcwpggci .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#xopcwpggci .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#xopcwpggci .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#xopcwpggci .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#xopcwpggci .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#xopcwpggci .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#xopcwpggci .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#xopcwpggci .gt_row {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#xopcwpggci .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xopcwpggci .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#xopcwpggci .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#xopcwpggci .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#xopcwpggci .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xopcwpggci .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#xopcwpggci .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#xopcwpggci .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xopcwpggci .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xopcwpggci .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#xopcwpggci .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xopcwpggci .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#xopcwpggci .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#xopcwpggci .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#xopcwpggci .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xopcwpggci .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#xopcwpggci .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#xopcwpggci .gt_left {
+  text-align: left;
+}
+
+#xopcwpggci .gt_center {
+  text-align: center;
+}
+
+#xopcwpggci .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#xopcwpggci .gt_font_normal {
+  font-weight: normal;
+}
+
+#xopcwpggci .gt_font_bold {
+  font-weight: bold;
+}
+
+#xopcwpggci .gt_font_italic {
+  font-style: italic;
+}
+
+#xopcwpggci .gt_super {
+  font-size: 65%;
+}
+
+#xopcwpggci .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#xopcwpggci .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#xopcwpggci .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#xopcwpggci .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#xopcwpggci .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#xopcwpggci .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#xopcwpggci .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#xopcwpggci .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#xopcwpggci div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<colgroup>
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+</colgroup>
+<thead>
+<tr class="gt_heading header">
+<th colspan="19" class="gt_heading gt_title gt_font_normal gt_bottom_border" style="text-align: left;"><strong>FCBpre by cohort &amp; term (heatmap)</strong></th>
+</tr>
+<tr class="gt_col_headings even">
+<th id="Cohort" class="gt_col_heading gt_columns_bottom_border gt_left" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">Cohort</th>
+<th id="F17" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">F17</th>
+<th id="S18" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">S18</th>
+<th id="F18" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">F18</th>
+<th id="S19" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">S19</th>
+<th id="F19" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">F19</th>
+<th id="S20" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">S20</th>
+<th id="F20" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">F20</th>
+<th id="S21" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">S21</th>
+<th id="F21" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">F21</th>
+<th id="S22" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">S22</th>
+<th id="F22" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">F22</th>
+<th id="S23" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">S23</th>
+<th id="F23" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">F23</th>
+<th id="S24" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">S24</th>
+<th id="F24" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">F24</th>
+<th id="S25" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">S25</th>
+<th id="F25" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">F25</th>
+<th id="S26" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">S26</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" style="text-align: left;" headers="Cohort">FT17</td>
+<td class="gt_row gt_right" headers="F17" style="text-align: left; background-color: #558CBA; color: #FFFFFF;">953</td>
+<td class="gt_row gt_right" headers="S18" style="text-align: left; background-color: #5790BD; color: #FFFFFF;">930</td>
+<td class="gt_row gt_right" headers="F18" style="text-align: left; background-color: #5993C0; color: #FFFFFF;">913</td>
+<td class="gt_row gt_right" headers="S19" style="text-align: left; background-color: #65A5CF; color: #FFFFFF;">810</td>
+<td class="gt_row gt_right" headers="F19" style="text-align: left; background-color: #D0E3F3; color: #000000;">227</td>
+<td class="gt_row gt_right" headers="S20" style="text-align: left; background-color: #E3EFF9; color: #000000;">116</td>
+<td class="gt_row gt_right" headers="F20" style="text-align: left; background-color: #EFF6FC; color: #000000;">48</td>
+<td class="gt_row gt_right" headers="S21" style="text-align: left; background-color: #F2F8FD; color: #000000;">31</td>
+<td class="gt_row gt_right" headers="F21" style="text-align: left; background-color: #F5FAFF; color: #000000;">9</td>
+<td class="gt_row gt_right" headers="S22" style="text-align: left; background-color: #F7FBFF; color: #000000;">2</td>
+<td class="gt_row gt_right" headers="F22" style="text-align: left; background-color: #F6FBFF; color: #000000;">3</td>
+<td class="gt_row gt_right" headers="S23" style="text-align: left; background-color: #F7FBFF; color: #000000;">2</td>
+<td class="gt_row gt_right" headers="F23" style="text-align: left; background-color: #F7FBFF; color: #000000;">1</td>
+<td class="gt_row gt_right" headers="S24" style="text-align: left; background-color: #F7FBFF; color: #000000;">1</td>
+<td class="gt_row gt_right" headers="F24" style="text-align: left; background-color: #F7FBFF; color: #000000;">0</td>
+<td class="gt_row gt_right" headers="S25" style="text-align: left; background-color: #F7FBFF; color: #000000;">1</td>
+<td class="gt_row gt_right" headers="F25" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+<td class="gt_row gt_right" headers="S26" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" style="text-align: left;" headers="Cohort">FT18</td>
+<td class="gt_row gt_right gt_striped" headers="F17" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S18" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F18" style="text-align: left; background-color: #4E82B1; color: #FFFFFF;">1,011</td>
+<td class="gt_row gt_right gt_striped" headers="S19" style="text-align: left; background-color: #5186B5; color: #FFFFFF;">984</td>
+<td class="gt_row gt_right gt_striped" headers="F19" style="text-align: left; background-color: #548BB9; color: #FFFFFF;">959</td>
+<td class="gt_row gt_right gt_striped" headers="S20" style="text-align: left; background-color: #62A0CB; color: #FFFFFF;">836</td>
+<td class="gt_row gt_right gt_striped" headers="F20" style="text-align: left; background-color: #D1E4F3; color: #000000;">221</td>
+<td class="gt_row gt_right gt_striped" headers="S21" style="text-align: left; background-color: #E7F1FA; color: #000000;">93</td>
+<td class="gt_row gt_right gt_striped" headers="F21" style="text-align: left; background-color: #EFF6FC; color: #000000;">49</td>
+<td class="gt_row gt_right gt_striped" headers="S22" style="text-align: left; background-color: #F2F8FD; color: #000000;">29</td>
+<td class="gt_row gt_right gt_striped" headers="F22" style="text-align: left; background-color: #F4F9FE; color: #000000;">16</td>
+<td class="gt_row gt_right gt_striped" headers="S23" style="text-align: left; background-color: #F6FAFF; color: #000000;">8</td>
+<td class="gt_row gt_right gt_striped" headers="F23" style="text-align: left; background-color: #F6FAFF; color: #000000;">6</td>
+<td class="gt_row gt_right gt_striped" headers="S24" style="text-align: left; background-color: #F6FAFF; color: #000000;">7</td>
+<td class="gt_row gt_right gt_striped" headers="F24" style="text-align: left; background-color: #F7FBFF; color: #000000;">2</td>
+<td class="gt_row gt_right gt_striped" headers="S25" style="text-align: left; background-color: #F6FBFF; color: #000000;">3</td>
+<td class="gt_row gt_right gt_striped" headers="F25" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S26" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" style="text-align: left;" headers="Cohort">FT19</td>
+<td class="gt_row gt_right" headers="F17" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S18" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F18" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S19" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F19" style="text-align: left; background-color: #5D98C4; color: #FFFFFF;">881</td>
+<td class="gt_row gt_right" headers="S20" style="text-align: left; background-color: #5A94C1; color: #FFFFFF;">906</td>
+<td class="gt_row gt_right" headers="F20" style="text-align: left; background-color: #5F9CC7; color: #FFFFFF;">861</td>
+<td class="gt_row gt_right" headers="S21" style="text-align: left; background-color: #6EB0D7; color: #000000;">744</td>
+<td class="gt_row gt_right" headers="F21" style="text-align: left; background-color: #CFE3F3; color: #000000;">232</td>
+<td class="gt_row gt_right" headers="S22" style="text-align: left; background-color: #E3EFF9; color: #000000;">116</td>
+<td class="gt_row gt_right" headers="F22" style="text-align: left; background-color: #EFF6FD; color: #000000;">46</td>
+<td class="gt_row gt_right" headers="S23" style="text-align: left; background-color: #F2F8FD; color: #000000;">31</td>
+<td class="gt_row gt_right" headers="F23" style="text-align: left; background-color: #F4F9FE; color: #000000;">17</td>
+<td class="gt_row gt_right" headers="S24" style="text-align: left; background-color: #F5FAFE; color: #000000;">10</td>
+<td class="gt_row gt_right" headers="F24" style="text-align: left; background-color: #F6FAFF; color: #000000;">6</td>
+<td class="gt_row gt_right" headers="S25" style="text-align: left; background-color: #F6FAFF; color: #000000;">7</td>
+<td class="gt_row gt_right" headers="F25" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+<td class="gt_row gt_right" headers="S26" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" style="text-align: left;" headers="Cohort">FT20</td>
+<td class="gt_row gt_right gt_striped" headers="F17" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S18" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F18" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S19" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F19" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S20" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F20" style="text-align: left; background-color: #619EC9; color: #FFFFFF;">849</td>
+<td class="gt_row gt_right gt_striped" headers="S21" style="text-align: left; background-color: #578EBC; color: #FFFFFF;">937</td>
+<td class="gt_row gt_right gt_striped" headers="F21" style="text-align: left; background-color: #568DBB; color: #FFFFFF;">946</td>
+<td class="gt_row gt_right gt_striped" headers="S22" style="text-align: left; background-color: #5E9AC6; color: #FFFFFF;">870</td>
+<td class="gt_row gt_right gt_striped" headers="F22" style="text-align: left; background-color: #C3DCEF; color: #000000;">297</td>
+<td class="gt_row gt_right gt_striped" headers="S23" style="text-align: left; background-color: #DBEAF6; color: #000000;">160</td>
+<td class="gt_row gt_right gt_striped" headers="F23" style="text-align: left; background-color: #EBF4FB; color: #000000;">67</td>
+<td class="gt_row gt_right gt_striped" headers="S24" style="text-align: left; background-color: #F0F7FD; color: #000000;">42</td>
+<td class="gt_row gt_right gt_striped" headers="F24" style="text-align: left; background-color: #F5FAFE; color: #000000;">11</td>
+<td class="gt_row gt_right gt_striped" headers="S25" style="text-align: left; background-color: #F6FAFF; color: #000000;">7</td>
+<td class="gt_row gt_right gt_striped" headers="F25" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S26" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" style="text-align: left;" headers="Cohort">FT21</td>
+<td class="gt_row gt_right" headers="F17" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S18" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F18" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S19" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F19" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S20" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F20" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S21" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F21" style="text-align: left; background-color: #4B7CAD; color: #FFFFFF;">1,041</td>
+<td class="gt_row gt_right" headers="S22" style="text-align: left; background-color: #4473A5; color: #FFFFFF;">1,096</td>
+<td class="gt_row gt_right" headers="F22" style="text-align: left; background-color: #4676A7; color: #FFFFFF;">1,081</td>
+<td class="gt_row gt_right" headers="S23" style="text-align: left; background-color: #5185B4; color: #FFFFFF;">990</td>
+<td class="gt_row gt_right" headers="F23" style="text-align: left; background-color: #BBD8ED; color: #000000;">342</td>
+<td class="gt_row gt_right" headers="S24" style="text-align: left; background-color: #D4E6F4; color: #000000;">200</td>
+<td class="gt_row gt_right" headers="F24" style="text-align: left; background-color: #EAF3FB; color: #000000;">73</td>
+<td class="gt_row gt_right" headers="S25" style="text-align: left; background-color: #F0F7FD; color: #000000;">40</td>
+<td class="gt_row gt_right" headers="F25" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+<td class="gt_row gt_right" headers="S26" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" style="text-align: left;" headers="Cohort">FT22</td>
+<td class="gt_row gt_right gt_striped" headers="F17" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S18" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F18" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S19" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F19" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S20" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F20" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S21" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F21" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S22" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F22" style="text-align: left; background-color: #20447D; color: #FFFFFF;">1,386</td>
+<td class="gt_row gt_right gt_striped" headers="S23" style="text-align: left; background-color: #0B326C; color: #FFFFFF;">1,509</td>
+<td class="gt_row gt_right gt_striped" headers="F23" style="text-align: left; background-color: #08306B; color: #FFFFFF;">1,520</td>
+<td class="gt_row gt_right gt_striped" headers="S24" style="text-align: left; background-color: #1F447D; color: #FFFFFF;">1,389</td>
+<td class="gt_row gt_right gt_striped" headers="F24" style="text-align: left; background-color: #9DC7E4; color: #000000;">510</td>
+<td class="gt_row gt_right gt_striped" headers="S25" style="text-align: left; background-color: #D1E4F3; color: #000000;">222</td>
+<td class="gt_row gt_right gt_striped" headers="F25" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S26" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" style="text-align: left;" headers="Cohort">FT23</td>
+<td class="gt_row gt_right" headers="F17" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S18" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F18" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S19" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F19" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S20" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F20" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S21" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F21" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S22" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F22" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S23" style="text-align: left; background-color: #2D548B; color: #FFFFFF;">1,286</td>
+<td class="gt_row gt_right" headers="F23" style="text-align: left; background-color: #2D548B; color: #FFFFFF;">1,286</td>
+<td class="gt_row gt_right" headers="S24" style="text-align: left; background-color: #1D427B; color: #FFFFFF;">1,403</td>
+<td class="gt_row gt_right" headers="F24" style="text-align: left; background-color: #1D417A; color: #FFFFFF;">1,407</td>
+<td class="gt_row gt_right" headers="S25" style="text-align: left; background-color: #325A90; color: #FFFFFF;">1,249</td>
+<td class="gt_row gt_right" headers="F25" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+<td class="gt_row gt_right" headers="S26" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" style="text-align: left;" headers="Cohort">FT24</td>
+<td class="gt_row gt_right gt_striped" headers="F17" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S18" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F18" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S19" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F19" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S20" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F20" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S21" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F21" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S22" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F22" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S23" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F23" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S24" style="text-align: left; background-color: #345D92; color: #FFFFFF;">1,232</td>
+<td class="gt_row gt_right gt_striped" headers="F24" style="text-align: left; background-color: #345D92; color: #FFFFFF;">1,232</td>
+<td class="gt_row gt_right gt_striped" headers="S25" style="text-align: left; background-color: #1E427B; color: #FFFFFF;">1,402</td>
+<td class="gt_row gt_right gt_striped" headers="F25" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S26" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" style="text-align: left;" headers="Cohort">FT25</td>
+<td class="gt_row gt_right" headers="F17" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S18" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F18" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S19" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F19" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S20" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F20" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S21" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F21" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S22" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F22" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S23" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F23" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S24" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F24" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S25" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F25" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+<td class="gt_row gt_right" headers="S26" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" style="text-align: left;" headers="Cohort">TR19</td>
+<td class="gt_row gt_right gt_striped" headers="F17" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S18" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F18" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S19" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F19" style="text-align: left; background-color: #E8F2FA; color: #000000;">85</td>
+<td class="gt_row gt_right gt_striped" headers="S20" style="text-align: left; background-color: #F1F8FD; color: #000000;">32</td>
+<td class="gt_row gt_right gt_striped" headers="F20" style="text-align: left; background-color: #F6FAFF; color: #000000;">8</td>
+<td class="gt_row gt_right gt_striped" headers="S21" style="text-align: left; background-color: #F6FBFF; color: #000000;">4</td>
+<td class="gt_row gt_right gt_striped" headers="F21" style="text-align: left; background-color: #F7FBFF; color: #000000;">2</td>
+<td class="gt_row gt_right gt_striped" headers="S22" style="text-align: left; background-color: #F7FBFF; color: #000000;">0</td>
+<td class="gt_row gt_right gt_striped" headers="F22" style="text-align: left; background-color: #F7FBFF; color: #000000;">1</td>
+<td class="gt_row gt_right gt_striped" headers="S23" style="text-align: left; background-color: #F7FBFF; color: #000000;">0</td>
+<td class="gt_row gt_right gt_striped" headers="F23" style="text-align: left; background-color: #F7FBFF; color: #000000;">0</td>
+<td class="gt_row gt_right gt_striped" headers="S24" style="text-align: left; background-color: #F7FBFF; color: #000000;">1</td>
+<td class="gt_row gt_right gt_striped" headers="F24" style="text-align: left; background-color: #F7FBFF; color: #000000;">1</td>
+<td class="gt_row gt_right gt_striped" headers="S25" style="text-align: left; background-color: #F7FBFF; color: #000000;">1</td>
+<td class="gt_row gt_right gt_striped" headers="F25" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S26" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" style="text-align: left;" headers="Cohort">TR20</td>
+<td class="gt_row gt_right" headers="F17" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S18" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F18" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S19" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F19" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S20" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F20" style="text-align: left; background-color: #DBEAF6; color: #000000;">164</td>
+<td class="gt_row gt_right" headers="S21" style="text-align: left; background-color: #EFF6FC; color: #000000;">47</td>
+<td class="gt_row gt_right" headers="F21" style="text-align: left; background-color: #F4F9FE; color: #000000;">16</td>
+<td class="gt_row gt_right" headers="S22" style="text-align: left; background-color: #F6FAFF; color: #000000;">7</td>
+<td class="gt_row gt_right" headers="F22" style="text-align: left; background-color: #F6FBFF; color: #000000;">4</td>
+<td class="gt_row gt_right" headers="S23" style="text-align: left; background-color: #F7FBFF; color: #000000;">2</td>
+<td class="gt_row gt_right" headers="F23" style="text-align: left; background-color: #F6FBFF; color: #000000;">3</td>
+<td class="gt_row gt_right" headers="S24" style="text-align: left; background-color: #F7FBFF; color: #000000;">1</td>
+<td class="gt_row gt_right" headers="F24" style="text-align: left; background-color: #F7FBFF; color: #000000;">0</td>
+<td class="gt_row gt_right" headers="S25" style="text-align: left; background-color: #F7FBFF; color: #000000;">0</td>
+<td class="gt_row gt_right" headers="F25" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+<td class="gt_row gt_right" headers="S26" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" style="text-align: left;" headers="Cohort">TR21</td>
+<td class="gt_row gt_right gt_striped" headers="F17" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S18" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F18" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S19" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F19" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S20" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F20" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S21" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F21" style="text-align: left; background-color: #DEECF7; color: #000000;">145</td>
+<td class="gt_row gt_right gt_striped" headers="S22" style="text-align: left; background-color: #F1F7FD; color: #000000;">35</td>
+<td class="gt_row gt_right gt_striped" headers="F22" style="text-align: left; background-color: #F5FAFE; color: #000000;">14</td>
+<td class="gt_row gt_right gt_striped" headers="S23" style="text-align: left; background-color: #F6FBFF; color: #000000;">4</td>
+<td class="gt_row gt_right gt_striped" headers="F23" style="text-align: left; background-color: #F7FBFF; color: #000000;">1</td>
+<td class="gt_row gt_right gt_striped" headers="S24" style="text-align: left; background-color: #F7FBFF; color: #000000;">0</td>
+<td class="gt_row gt_right gt_striped" headers="F24" style="text-align: left; background-color: #F7FBFF; color: #000000;">2</td>
+<td class="gt_row gt_right gt_striped" headers="S25" style="text-align: left; background-color: #F7FBFF; color: #000000;">1</td>
+<td class="gt_row gt_right gt_striped" headers="F25" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S26" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" style="text-align: left;" headers="Cohort">TR22</td>
+<td class="gt_row gt_right" headers="F17" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S18" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F18" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S19" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F19" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S20" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F20" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S21" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F21" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S22" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F22" style="text-align: left; background-color: #D9E9F6; color: #000000;">173</td>
+<td class="gt_row gt_right" headers="S23" style="text-align: left; background-color: #EEF5FC; color: #000000;">55</td>
+<td class="gt_row gt_right" headers="F23" style="text-align: left; background-color: #F5FAFE; color: #000000;">14</td>
+<td class="gt_row gt_right" headers="S24" style="text-align: left; background-color: #F6FAFF; color: #000000;">8</td>
+<td class="gt_row gt_right" headers="F24" style="text-align: left; background-color: #F6FBFF; color: #000000;">4</td>
+<td class="gt_row gt_right" headers="S25" style="text-align: left; background-color: #F7FBFF; color: #000000;">2</td>
+<td class="gt_row gt_right" headers="F25" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+<td class="gt_row gt_right" headers="S26" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" style="text-align: left;" headers="Cohort">TR23</td>
+<td class="gt_row gt_right gt_striped" headers="F17" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S18" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F18" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S19" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F19" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S20" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F20" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S21" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F21" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S22" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F22" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S23" style="text-align: left; background-color: #B9D6EC; color: #000000;">357</td>
+<td class="gt_row gt_right gt_striped" headers="F23" style="text-align: left; background-color: #B9D6EC; color: #000000;">357</td>
+<td class="gt_row gt_right gt_striped" headers="S24" style="text-align: left; background-color: #DFEDF8; color: #000000;">139</td>
+<td class="gt_row gt_right gt_striped" headers="F24" style="text-align: left; background-color: #F0F7FD; color: #000000;">40</td>
+<td class="gt_row gt_right gt_striped" headers="S25" style="text-align: left; background-color: #F3F9FE; color: #000000;">21</td>
+<td class="gt_row gt_right gt_striped" headers="F25" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S26" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" style="text-align: left;" headers="Cohort">TR24</td>
+<td class="gt_row gt_right" headers="F17" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S18" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F18" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S19" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F19" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S20" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F20" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S21" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F21" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S22" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F22" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S23" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F23" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S24" style="text-align: left; background-color: #CEE2F2; color: #000000;">238</td>
+<td class="gt_row gt_right" headers="F24" style="text-align: left; background-color: #CEE2F2; color: #000000;">238</td>
+<td class="gt_row gt_right" headers="S25" style="text-align: left; background-color: #EAF3FB; color: #000000;">78</td>
+<td class="gt_row gt_right" headers="F25" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+<td class="gt_row gt_right" headers="S26" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" style="text-align: left;" headers="Cohort">TR25</td>
+<td class="gt_row gt_right gt_striped" headers="F17" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S18" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F18" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S19" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F19" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S20" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F20" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S21" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F21" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S22" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F22" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S23" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F23" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S24" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F24" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S25" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F25" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S26" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell quarto-layout-cell html-fill-item html-fill-container" style="flex-basis: 50.0%;justify-content: center;">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div id="avjkpycvlz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;" class="html-fill-item html-fill-container">
+<style>#avjkpycvlz table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#avjkpycvlz thead, #avjkpycvlz tbody, #avjkpycvlz tfoot, #avjkpycvlz tr, #avjkpycvlz td, #avjkpycvlz th {
+  border-style: none;
+}
+
+#avjkpycvlz p {
+  margin: 0;
+  padding: 0;
+}
+
+#avjkpycvlz .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#avjkpycvlz .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#avjkpycvlz .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#avjkpycvlz .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#avjkpycvlz .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#avjkpycvlz .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#avjkpycvlz .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#avjkpycvlz .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#avjkpycvlz .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#avjkpycvlz .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#avjkpycvlz .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#avjkpycvlz .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#avjkpycvlz .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#avjkpycvlz .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#avjkpycvlz .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#avjkpycvlz .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#avjkpycvlz .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#avjkpycvlz .gt_row {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#avjkpycvlz .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#avjkpycvlz .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#avjkpycvlz .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#avjkpycvlz .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#avjkpycvlz .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#avjkpycvlz .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#avjkpycvlz .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#avjkpycvlz .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#avjkpycvlz .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#avjkpycvlz .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#avjkpycvlz .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#avjkpycvlz .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#avjkpycvlz .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#avjkpycvlz .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#avjkpycvlz .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#avjkpycvlz .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#avjkpycvlz .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#avjkpycvlz .gt_left {
+  text-align: left;
+}
+
+#avjkpycvlz .gt_center {
+  text-align: center;
+}
+
+#avjkpycvlz .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#avjkpycvlz .gt_font_normal {
+  font-weight: normal;
+}
+
+#avjkpycvlz .gt_font_bold {
+  font-weight: bold;
+}
+
+#avjkpycvlz .gt_font_italic {
+  font-style: italic;
+}
+
+#avjkpycvlz .gt_super {
+  font-size: 65%;
+}
+
+#avjkpycvlz .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#avjkpycvlz .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#avjkpycvlz .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#avjkpycvlz .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#avjkpycvlz .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#avjkpycvlz .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#avjkpycvlz .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#avjkpycvlz .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#avjkpycvlz div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<colgroup>
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+</colgroup>
+<thead>
+<tr class="gt_heading header">
+<th colspan="19" class="gt_heading gt_title gt_font_normal gt_bottom_border" style="text-align: left;"><strong>FCBud by cohort &amp; term (heatmap)</strong></th>
+</tr>
+<tr class="gt_col_headings even">
+<th id="Cohort" class="gt_col_heading gt_columns_bottom_border gt_left" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">Cohort</th>
+<th id="F17" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">F17</th>
+<th id="S18" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">S18</th>
+<th id="F18" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">F18</th>
+<th id="S19" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">S19</th>
+<th id="F19" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">F19</th>
+<th id="S20" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">S20</th>
+<th id="F20" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">F20</th>
+<th id="S21" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">S21</th>
+<th id="F21" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">F21</th>
+<th id="S22" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">S22</th>
+<th id="F22" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">F22</th>
+<th id="S23" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">S23</th>
+<th id="F23" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">F23</th>
+<th id="S24" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">S24</th>
+<th id="F24" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">F24</th>
+<th id="S25" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">S25</th>
+<th id="F25" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">F25</th>
+<th id="S26" class="gt_col_heading gt_columns_bottom_border gt_right" style="text-align: left;" data-quarto-table-cell-role="th" scope="col">S26</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" style="text-align: left;" headers="Cohort">FT17</td>
+<td class="gt_row gt_right" headers="F17" style="text-align: left; background-color: #F7FBFF; color: #000000;">0</td>
+<td class="gt_row gt_right" headers="S18" style="text-align: left; background-color: #F6FBFF; color: #000000;">3</td>
+<td class="gt_row gt_right" headers="F18" style="text-align: left; background-color: #F4F9FE; color: #000000;">14</td>
+<td class="gt_row gt_right" headers="S19" style="text-align: left; background-color: #DBEAF6; color: #000000;">115</td>
+<td class="gt_row gt_right" headers="F19" style="text-align: left; background-color: #5891BE; color: #FFFFFF;">647</td>
+<td class="gt_row gt_right" headers="S20" style="text-align: left; background-color: #5891BE; color: #FFFFFF;">645</td>
+<td class="gt_row gt_right" headers="F20" style="text-align: left; background-color: #3E6A9E; color: #FFFFFF;">806</td>
+<td class="gt_row gt_right" headers="S21" style="text-align: left; background-color: #4675A7; color: #FFFFFF;">759</td>
+<td class="gt_row gt_right" headers="F21" style="text-align: left; background-color: #C6DEF0; color: #000000;">198</td>
+<td class="gt_row gt_right" headers="S22" style="text-align: left; background-color: #D6E7F5; color: #000000;">132</td>
+<td class="gt_row gt_right" headers="F22" style="text-align: left; background-color: #EEF5FC; color: #000000;">38</td>
+<td class="gt_row gt_right" headers="S23" style="text-align: left; background-color: #F3F9FE; color: #000000;">16</td>
+<td class="gt_row gt_right" headers="F23" style="text-align: left; background-color: #F5FAFE; color: #000000;">8</td>
+<td class="gt_row gt_right" headers="S24" style="text-align: left; background-color: #F6FBFF; color: #000000;">3</td>
+<td class="gt_row gt_right" headers="F24" style="text-align: left; background-color: #F7FBFF; color: #000000;">2</td>
+<td class="gt_row gt_right" headers="S25" style="text-align: left; background-color: #F7FBFF; color: #000000;">2</td>
+<td class="gt_row gt_right" headers="F25" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+<td class="gt_row gt_right" headers="S26" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" style="text-align: left;" headers="Cohort">FT18</td>
+<td class="gt_row gt_right gt_striped" headers="F17" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S18" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F18" style="text-align: left; background-color: #F7FBFF; color: #000000;">1</td>
+<td class="gt_row gt_right gt_striped" headers="S19" style="text-align: left; background-color: #F7FBFF; color: #000000;">2</td>
+<td class="gt_row gt_right gt_striped" headers="F19" style="text-align: left; background-color: #F2F8FD; color: #000000;">20</td>
+<td class="gt_row gt_right gt_striped" headers="S20" style="text-align: left; background-color: #D8E8F5; color: #000000;">126</td>
+<td class="gt_row gt_right gt_striped" headers="F20" style="text-align: left; background-color: #4778A9; color: #FFFFFF;">748</td>
+<td class="gt_row gt_right gt_striped" headers="S21" style="text-align: left; background-color: #366095; color: #FFFFFF;">848</td>
+<td class="gt_row gt_right gt_striped" headers="F21" style="text-align: left; background-color: #345D93; color: #FFFFFF;">860</td>
+<td class="gt_row gt_right gt_striped" headers="S22" style="text-align: left; background-color: #3D699D; color: #FFFFFF;">810</td>
+<td class="gt_row gt_right gt_striped" headers="F22" style="text-align: left; background-color: #C4DDEF; color: #000000;">204</td>
+<td class="gt_row gt_right gt_striped" headers="S23" style="text-align: left; background-color: #DDEBF7; color: #000000;">107</td>
+<td class="gt_row gt_right gt_striped" headers="F23" style="text-align: left; background-color: #EFF6FD; color: #000000;">32</td>
+<td class="gt_row gt_right gt_striped" headers="S24" style="text-align: left; background-color: #F3F8FE; color: #000000;">17</td>
+<td class="gt_row gt_right gt_striped" headers="F24" style="text-align: left; background-color: #F4F9FE; color: #000000;">11</td>
+<td class="gt_row gt_right gt_striped" headers="S25" style="text-align: left; background-color: #F5FAFE; color: #000000;">7</td>
+<td class="gt_row gt_right gt_striped" headers="F25" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S26" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" style="text-align: left;" headers="Cohort">FT19</td>
+<td class="gt_row gt_right" headers="F17" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S18" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F18" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S19" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F19" style="text-align: left; background-color: #F7FBFF; color: #000000;">1</td>
+<td class="gt_row gt_right" headers="S20" style="text-align: left; background-color: #F7FBFF; color: #000000;">1</td>
+<td class="gt_row gt_right" headers="F20" style="text-align: left; background-color: #F3F8FE; color: #000000;">18</td>
+<td class="gt_row gt_right" headers="S21" style="text-align: left; background-color: #D3E5F4; color: #000000;">146</td>
+<td class="gt_row gt_right" headers="F21" style="text-align: left; background-color: #5084B3; color: #FFFFFF;">698</td>
+<td class="gt_row gt_right" headers="S22" style="text-align: left; background-color: #4473A6; color: #FFFFFF;">766</td>
+<td class="gt_row gt_right" headers="F22" style="text-align: left; background-color: #3C679B; color: #FFFFFF;">818</td>
+<td class="gt_row gt_right" headers="S23" style="text-align: left; background-color: #4372A4; color: #FFFFFF;">772</td>
+<td class="gt_row gt_right" headers="F23" style="text-align: left; background-color: #CFE3F3; color: #000000;">162</td>
+<td class="gt_row gt_right" headers="S24" style="text-align: left; background-color: #E0EDF8; color: #000000;">92</td>
+<td class="gt_row gt_right" headers="F24" style="text-align: left; background-color: #EEF5FC; color: #000000;">38</td>
+<td class="gt_row gt_right" headers="S25" style="text-align: left; background-color: #F0F7FD; color: #000000;">28</td>
+<td class="gt_row gt_right" headers="F25" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+<td class="gt_row gt_right" headers="S26" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" style="text-align: left;" headers="Cohort">FT20</td>
+<td class="gt_row gt_right gt_striped" headers="F17" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S18" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F18" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S19" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F19" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S20" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F20" style="text-align: left; background-color: #F7FBFF; color: #000000;">1</td>
+<td class="gt_row gt_right gt_striped" headers="S21" style="text-align: left; background-color: #F6FBFF; color: #000000;">3</td>
+<td class="gt_row gt_right gt_striped" headers="F21" style="text-align: left; background-color: #F1F7FD; color: #000000;">24</td>
+<td class="gt_row gt_right gt_striped" headers="S22" style="text-align: left; background-color: #D7E8F5; color: #000000;">131</td>
+<td class="gt_row gt_right gt_striped" headers="F22" style="text-align: left; background-color: #5186B5; color: #FFFFFF;">689</td>
+<td class="gt_row gt_right gt_striped" headers="S23" style="text-align: left; background-color: #4979AB; color: #FFFFFF;">741</td>
+<td class="gt_row gt_right gt_striped" headers="F23" style="text-align: left; background-color: #3B679B; color: #FFFFFF;">820</td>
+<td class="gt_row gt_right gt_striped" headers="S24" style="text-align: left; background-color: #406DA0; color: #FFFFFF;">794</td>
+<td class="gt_row gt_right gt_striped" headers="F24" style="text-align: left; background-color: #D2E5F4; color: #000000;">148</td>
+<td class="gt_row gt_right gt_striped" headers="S25" style="text-align: left; background-color: #DDEBF7; color: #000000;">107</td>
+<td class="gt_row gt_right gt_striped" headers="F25" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S26" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" style="text-align: left;" headers="Cohort">FT21</td>
+<td class="gt_row gt_right" headers="F17" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S18" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F18" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S19" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F19" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S20" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F20" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S21" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F21" style="text-align: left; background-color: #F7FBFF; color: #000000;">0</td>
+<td class="gt_row gt_right" headers="S22" style="text-align: left; background-color: #F7FBFF; color: #000000;">2</td>
+<td class="gt_row gt_right" headers="F22" style="text-align: left; background-color: #F2F8FD; color: #000000;">21</td>
+<td class="gt_row gt_right" headers="S23" style="text-align: left; background-color: #D9E9F6; color: #000000;">121</td>
+<td class="gt_row gt_right" headers="F23" style="text-align: left; background-color: #4A7BAC; color: #FFFFFF;">735</td>
+<td class="gt_row gt_right" headers="S24" style="text-align: left; background-color: #4472A5; color: #FFFFFF;">771</td>
+<td class="gt_row gt_right" headers="F24" style="text-align: left; background-color: #325A90; color: #FFFFFF;">874</td>
+<td class="gt_row gt_right" headers="S25" style="text-align: left; background-color: #355F94; color: #FFFFFF;">854</td>
+<td class="gt_row gt_right" headers="F25" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+<td class="gt_row gt_right" headers="S26" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" style="text-align: left;" headers="Cohort">FT22</td>
+<td class="gt_row gt_right gt_striped" headers="F17" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S18" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F18" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S19" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F19" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S20" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F20" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S21" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F21" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S22" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F22" style="text-align: left; background-color: #F7FBFF; color: #000000;">0</td>
+<td class="gt_row gt_right gt_striped" headers="S23" style="text-align: left; background-color: #F6FBFF; color: #000000;">3</td>
+<td class="gt_row gt_right gt_striped" headers="F23" style="text-align: left; background-color: #F1F7FD; color: #000000;">25</td>
+<td class="gt_row gt_right gt_striped" headers="S24" style="text-align: left; background-color: #CCE2F2; color: #000000;">172</td>
+<td class="gt_row gt_right gt_striped" headers="F24" style="text-align: left; background-color: #1B3F78; color: #FFFFFF;">995</td>
+<td class="gt_row gt_right gt_striped" headers="S25" style="text-align: left; background-color: #08306B; color: #FFFFFF;">1,064</td>
+<td class="gt_row gt_right gt_striped" headers="F25" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S26" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" style="text-align: left;" headers="Cohort">FT23</td>
+<td class="gt_row gt_right" headers="F17" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S18" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F18" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S19" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F19" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S20" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F20" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S21" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F21" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S22" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F22" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S23" style="text-align: left; background-color: #F7FBFF; color: #000000;">0</td>
+<td class="gt_row gt_right" headers="F23" style="text-align: left; background-color: #F7FBFF; color: #000000;">0</td>
+<td class="gt_row gt_right" headers="S24" style="text-align: left; background-color: #F6FAFF; color: #000000;">6</td>
+<td class="gt_row gt_right" headers="F24" style="text-align: left; background-color: #F1F7FD; color: #000000;">24</td>
+<td class="gt_row gt_right" headers="S25" style="text-align: left; background-color: #C4DDEF; color: #000000;">206</td>
+<td class="gt_row gt_right" headers="F25" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+<td class="gt_row gt_right" headers="S26" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" style="text-align: left;" headers="Cohort">FT24</td>
+<td class="gt_row gt_right gt_striped" headers="F17" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S18" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F18" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S19" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F19" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S20" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F20" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S21" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F21" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S22" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F22" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S23" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F23" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S24" style="text-align: left; background-color: #F7FBFF; color: #000000;">0</td>
+<td class="gt_row gt_right gt_striped" headers="F24" style="text-align: left; background-color: #F7FBFF; color: #000000;">0</td>
+<td class="gt_row gt_right gt_striped" headers="S25" style="text-align: left; background-color: #F7FBFF; color: #000000;">0</td>
+<td class="gt_row gt_right gt_striped" headers="F25" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S26" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" style="text-align: left;" headers="Cohort">FT25</td>
+<td class="gt_row gt_right" headers="F17" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S18" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F18" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S19" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F19" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S20" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F20" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S21" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F21" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S22" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F22" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S23" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F23" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S24" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F24" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S25" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F25" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+<td class="gt_row gt_right" headers="S26" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" style="text-align: left;" headers="Cohort">TR19</td>
+<td class="gt_row gt_right gt_striped" headers="F17" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S18" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F18" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S19" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F19" style="text-align: left; background-color: #4575A7; color: #FFFFFF;">760</td>
+<td class="gt_row gt_right gt_striped" headers="S20" style="text-align: left; background-color: #4473A5; color: #FFFFFF;">768</td>
+<td class="gt_row gt_right gt_striped" headers="F20" style="text-align: left; background-color: #416EA1; color: #FFFFFF;">789</td>
+<td class="gt_row gt_right gt_striped" headers="S21" style="text-align: left; background-color: #4C7EAE; color: #FFFFFF;">723</td>
+<td class="gt_row gt_right gt_striped" headers="F21" style="text-align: left; background-color: #B1D2EA; color: #000000;">278</td>
+<td class="gt_row gt_right gt_striped" headers="S22" style="text-align: left; background-color: #D0E4F3; color: #000000;">157</td>
+<td class="gt_row gt_right gt_striped" headers="F22" style="text-align: left; background-color: #E7F1FA; color: #000000;">66</td>
+<td class="gt_row gt_right gt_striped" headers="S23" style="text-align: left; background-color: #EDF5FC; color: #000000;">39</td>
+<td class="gt_row gt_right gt_striped" headers="F23" style="text-align: left; background-color: #F3F9FE; color: #000000;">16</td>
+<td class="gt_row gt_right gt_striped" headers="S24" style="text-align: left; background-color: #F4F9FE; color: #000000;">14</td>
+<td class="gt_row gt_right gt_striped" headers="F24" style="text-align: left; background-color: #F5FAFE; color: #000000;">8</td>
+<td class="gt_row gt_right gt_striped" headers="S25" style="text-align: left; background-color: #F5FAFE; color: #000000;">9</td>
+<td class="gt_row gt_right gt_striped" headers="F25" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S26" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" style="text-align: left;" headers="Cohort">TR20</td>
+<td class="gt_row gt_right" headers="F17" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S18" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F18" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S19" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F19" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S20" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F20" style="text-align: left; background-color: #4676A8; color: #FFFFFF;">756</td>
+<td class="gt_row gt_right" headers="S21" style="text-align: left; background-color: #396398; color: #FFFFFF;">833</td>
+<td class="gt_row gt_right" headers="F21" style="text-align: left; background-color: #376196; color: #FFFFFF;">843</td>
+<td class="gt_row gt_right" headers="S22" style="text-align: left; background-color: #416EA1; color: #FFFFFF;">787</td>
+<td class="gt_row gt_right" headers="F22" style="text-align: left; background-color: #9BC6E3; color: #000000;">363</td>
+<td class="gt_row gt_right" headers="S23" style="text-align: left; background-color: #C3DCEF; color: #000000;">210</td>
+<td class="gt_row gt_right" headers="F23" style="text-align: left; background-color: #E3EFF9; color: #000000;">83</td>
+<td class="gt_row gt_right" headers="S24" style="text-align: left; background-color: #E7F2FA; color: #000000;">63</td>
+<td class="gt_row gt_right" headers="F24" style="text-align: left; background-color: #F0F7FD; color: #000000;">29</td>
+<td class="gt_row gt_right" headers="S25" style="text-align: left; background-color: #F3F9FE; color: #000000;">16</td>
+<td class="gt_row gt_right" headers="F25" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+<td class="gt_row gt_right" headers="S26" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" style="text-align: left;" headers="Cohort">TR21</td>
+<td class="gt_row gt_right gt_striped" headers="F17" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S18" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F18" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S19" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F19" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S20" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F20" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S21" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F21" style="text-align: left; background-color: #4C7FAF; color: #FFFFFF;">719</td>
+<td class="gt_row gt_right gt_striped" headers="S22" style="text-align: left; background-color: #416FA2; color: #FFFFFF;">785</td>
+<td class="gt_row gt_right gt_striped" headers="F22" style="text-align: left; background-color: #4371A4; color: #FFFFFF;">774</td>
+<td class="gt_row gt_right gt_striped" headers="S23" style="text-align: left; background-color: #497BAC; color: #FFFFFF;">736</td>
+<td class="gt_row gt_right gt_striped" headers="F23" style="text-align: left; background-color: #B5D4EB; color: #000000;">265</td>
+<td class="gt_row gt_right gt_striped" headers="S24" style="text-align: left; background-color: #D3E5F4; color: #000000;">146</td>
+<td class="gt_row gt_right gt_striped" headers="F24" style="text-align: left; background-color: #ECF4FB; color: #000000;">46</td>
+<td class="gt_row gt_right gt_striped" headers="S25" style="text-align: left; background-color: #EFF6FC; color: #000000;">34</td>
+<td class="gt_row gt_right gt_striped" headers="F25" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S26" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" style="text-align: left;" headers="Cohort">TR22</td>
+<td class="gt_row gt_right" headers="F17" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S18" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F18" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S19" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F19" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S20" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F20" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S21" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F21" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S22" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F22" style="text-align: left; background-color: #3E6B9E; color: #FFFFFF;">803</td>
+<td class="gt_row gt_right" headers="S23" style="text-align: left; background-color: #2F578D; color: #FFFFFF;">888</td>
+<td class="gt_row gt_right" headers="F23" style="text-align: left; background-color: #365F94; color: #FFFFFF;">852</td>
+<td class="gt_row gt_right" headers="S24" style="text-align: left; background-color: #3C689C; color: #FFFFFF;">814</td>
+<td class="gt_row gt_right" headers="F24" style="text-align: left; background-color: #BAD7EC; color: #000000;">246</td>
+<td class="gt_row gt_right" headers="S25" style="text-align: left; background-color: #D8E8F5; color: #000000;">126</td>
+<td class="gt_row gt_right" headers="F25" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+<td class="gt_row gt_right" headers="S26" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" style="text-align: left;" headers="Cohort">TR23</td>
+<td class="gt_row gt_right gt_striped" headers="F17" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S18" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F18" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S19" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F19" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S20" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F20" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S21" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F21" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S22" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F22" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S23" style="text-align: left; background-color: #3E6A9E; color: #FFFFFF;">804</td>
+<td class="gt_row gt_right gt_striped" headers="F23" style="text-align: left; background-color: #3E6A9E; color: #FFFFFF;">804</td>
+<td class="gt_row gt_right gt_striped" headers="S24" style="text-align: left; background-color: #1A3E78; color: #FFFFFF;">997</td>
+<td class="gt_row gt_right gt_striped" headers="F24" style="text-align: left; background-color: #0B326D; color: #FFFFFF;">1,055</td>
+<td class="gt_row gt_right gt_striped" headers="S25" style="text-align: left; background-color: #103570; color: #FFFFFF;">1,038</td>
+<td class="gt_row gt_right gt_striped" headers="F25" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S26" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_left" style="text-align: left;" headers="Cohort">TR24</td>
+<td class="gt_row gt_right" headers="F17" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S18" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F18" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S19" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F19" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S20" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F20" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S21" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F21" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S22" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F22" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S23" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="F23" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right" headers="S24" style="text-align: left; background-color: #3A6599; color: #FFFFFF;">827</td>
+<td class="gt_row gt_right" headers="F24" style="text-align: left; background-color: #3A6599; color: #FFFFFF;">827</td>
+<td class="gt_row gt_right" headers="S25" style="text-align: left; background-color: #1F447D; color: #FFFFFF;">972</td>
+<td class="gt_row gt_right" headers="F25" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+<td class="gt_row gt_right" headers="S26" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_left gt_striped" style="text-align: left;" headers="Cohort">TR25</td>
+<td class="gt_row gt_right gt_striped" headers="F17" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S18" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F18" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S19" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F19" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S20" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F20" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S21" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F21" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S22" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F22" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S23" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F23" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S24" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F24" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S25" style="text-align: left; background-color: #FFFFFF; color: #000000;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="F25" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+<td class="gt_row gt_right gt_striped" headers="S26" style="text-align: left; background-color: #FFFFFF; color: #000000; font-style: italic; font-weight: bold;"><br>
+</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+<div id="3ade8a4a-fb1d-4a6c-8409-ac45482d5fc9" class="hidden html-fill-item html-fill-container">
+
+</div>
+</div>
+</div>
+</div>
+
+
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /container fluid -->
+
+<script type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (_event) {
+  if (window.bslib.Card) {
+    window.bslib.Card.initializeAllCards();
+  }
+}); 
+</script>
+  
+
+
+
+</body></html>

@@ -1,0 +1,401 @@
+---
+title: "Test"
+author: "EMB"
+format: dashboard
+editor: visual
+---
+
+# Page 1
+
+```{r}
+load("~/_FCB/Summer25/Markov/Rdata/data_image1.RData")
+# load packages needed by ALL chunks
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(plotly)
+library(scales)
+library(reactable)
+library(stringr)
+library(forcats)   # << this is the missing one
+
+tbl <- fcbud_waterfall %>%
+  mutate(
+    Semester = as.integer(Semester),
+    Pct_of_Total = Pct_of_Total/100,
+    Label = paste0(Cohort, " (S", Semester, ")")
+  ) %>%
+  select(Label, F23, F24, Diff, Pct_of_Total, A, B, C, D, E)
+
+reactable(
+  tbl,
+  striped = TRUE,
+  highlight = TRUE,
+  filterable = TRUE,
+  searchable = TRUE,
+  defaultPageSize = 20,
+  defaultColDef = colDef(align = "right"),
+  columns = list(
+    Label = colDef(align = "left", sticky = "left", width = 180),
+    F23 = colDef(format = colFormat(separators = TRUE, digits = 0)),
+    F24 = colDef(format = colFormat(separators = TRUE, digits = 0)),
+    Diff = colDef(format = colFormat(separators = TRUE, digits = 0),
+                  style = function(value) ifelse(value >= 0, list(color="#1b9e77"), list(color="#d95f02"))),
+    Pct_of_Total = colDef(name = "% of total", format = colFormat(percent = TRUE, digits = 1)),
+    A = colDef(name = "Admissions", format = colFormat(separators = TRUE, digits = 0)),
+    B = colDef(name = "% FCB", format = colFormat(separators = TRUE, digits = 0)),
+    C = colDef(name = "Retention", format = colFormat(separators = TRUE, digits = 0)),
+    D = colDef(name = "Net transfers", format = colFormat(separators = TRUE, digits = 0)),
+    E = colDef(name = "Promotion", format = colFormat(separators = TRUE, digits = 0))
+  )
+)
+
+
+```
+
+
+# Page 2
+
+```{r}
+## Classic Waterfall F23 --> F24
+
+make_waterfall_topk_df <- function(fcbud_waterfall,
+                                   term1 = "F23",
+                                   term2 = "F24",
+                                   top_k = 10,
+                                   order_by = c("abs_diff","pct","diff"),
+                                   verbose = TRUE) {
+  order_by <- match.arg(order_by)
+  
+  # Split rows
+  has_total_row <- any(fcbud_waterfall$Cohort == "Total")
+  cohorts_only  <- fcbud_waterfall %>% filter(Cohort != "Total")
+  
+  # Totals (use Total row if present)
+  if (has_total_row) {
+    total_t1 <- fcbud_waterfall[[term1]][fcbud_waterfall$Cohort == "Total"]
+    total_t2 <- fcbud_waterfall[[term2]][fcbud_waterfall$Cohort == "Total"]
+  } else {
+    total_t1 <- sum(cohorts_only[[term1]], na.rm = TRUE)
+    total_t2 <- sum(cohorts_only[[term2]], na.rm = TRUE)
+  }
+  total_delta <- total_t2 - total_t1
+  
+  # Build a lookup of Cohort → Semester for labeling
+  sem_lookup <- fcbud_waterfall %>%
+    filter(Cohort != "Total") %>%
+    distinct(Cohort, Semester)
+  
+  # Order (with % fallback)
+  core <- cohorts_only %>%
+    mutate(
+      pct_used  = ifelse(is.na(Pct_of_Total), 100 * Diff / total_delta, Pct_of_Total),
+      order_key = case_when(
+        order_by == "abs_diff" ~ abs(Diff),
+        order_by == "pct"      ~ abs(pct_used),
+        TRUE                   ~ Diff
+      )
+    ) %>%
+    arrange(desc(order_key)) %>%
+    # ensure Semester is present (if your table already has it, this is harmless)
+    left_join(sem_lookup, by = "Cohort")
+  
+  n_avail <- nrow(core)
+  top_k   <- min(top_k, n_avail)
+  
+  # Build a lookup: Cohort -> Semester (from the already-built table)
+  sem_map <- with(
+    fcbud_waterfall %>% dplyr::filter(Cohort != "Total"),
+    stats::setNames(Semester, Cohort)
+  )
+  
+  # Top-K with (S#) labels via the lookup (no joins, no ambiguity)
+  top <- core %>%
+    dplyr::slice_head(n = top_k) %>%
+    dplyr::mutate(
+      Sem_for_label = sem_map[Cohort],                 # vectorized lookup
+      label = ifelse(
+        is.na(Sem_for_label),
+        Cohort,                                       # fallback if missing
+        paste0(Cohort, " (S", as.integer(Sem_for_label), ")")
+      )
+    ) %>%
+    dplyr::transmute(
+      step = Cohort,
+      label = label,
+      value = Diff,
+      type  = ifelse(Diff >= 0, "Increase", "Decrease")
+    )
+  
+  
+  # “Other” to force Start + steps = End (full)
+  other_sum <- total_delta - sum(top$value, na.rm = TRUE)
+  contrib <- if (abs(other_sum) > 0) {
+    bind_rows(
+      top,
+      tibble(step = "Other", label = "Other", value = other_sum,
+             type = ifelse(other_sum >= 0, "Increase", "Decrease"))
+    )
+  } else top
+  
+  if (verbose) {
+    message(sprintf("Top-K selected: %d (of %d). 'Other' = %+d. Sum(top + other) = %+d. Full Δ = %+d.",
+                    top_k, n_avail, round(other_sum),
+                    round(sum(contrib$value, na.rm = TRUE)), round(total_delta)))
+  }
+  
+  # Build sequence: Start → contributions → End
+  seq_df <- bind_rows(
+    tibble(step = "Start", label = term1, value = total_t1, type = "Start"),
+    contrib,
+    tibble(step = "End",   label = term2, value = total_t2, type = "End")
+  )
+  
+  # Floating bases via running total
+  running <- total_t1
+  ymin <- numeric(nrow(seq_df)); ymax <- numeric(nrow(seq_df))
+  for (i in seq_len(nrow(seq_df))) {
+    tp  <- seq_df$type[i]; val <- seq_df$value[i]
+    if (tp == "Start") { ymin[i] <- 0; ymax[i] <- total_t1; running <- total_t1 }
+    else if (tp %in% c("Increase","Decrease")) { ymin[i] <- running; running <- running + val; ymax[i] <- running }
+    else if (tp == "End") { ymin[i] <- 0; ymax[i] <- total_t2 }
+  }
+  
+  seq_df$ymin <- ymin; seq_df$ymax <- ymax
+  seq_df$x    <- seq_along(seq_df$step)
+  seq_df$xmin <- seq_df$x - 0.42
+  seq_df$xmax <- seq_df$x + 0.42
+  seq_df
+}
+
+
+
+plot_waterfall_topk <- function(wf_df, y_floor = NULL) {
+  # If using a y-floor, clamp bar bases so they render (avoids “removed rows”)
+  if (!is.null(y_floor)) {
+    wf_df <- wf_df %>%
+      mutate(
+        ymin_plot = pmax(ymin, y_floor),
+        ymax_plot = pmax(ymax, y_floor)
+      ) %>%
+      # For Start/End, draw from floor to total (so the grey bars show)
+      mutate(
+        ymin_plot = ifelse(type %in% c("Start","End"), y_floor, ymin_plot)
+      )
+  } else {
+    wf_df <- wf_df %>% mutate(ymin_plot = ymin, ymax_plot = ymax)
+  }
+  
+  # connectors (also clamp to floor when present)
+  connectors <- wf_df %>%
+    filter(type %in% c("Increase","Decrease")) %>%
+    transmute(
+      x = x, xend = x + 1,
+      y = if (!is.null(y_floor)) pmax(ymax, y_floor) else ymax,
+      yend = if (!is.null(y_floor)) pmax(ymax, y_floor) else ymax
+    )
+  
+  ggplot(wf_df) +
+    geom_rect(aes(xmin = xmin, xmax = xmax, ymin = ymin_plot, ymax = ymax_plot, fill = type)) +
+    geom_segment(data = connectors, aes(x = x, xend = xend, y = y, yend = yend),
+                 linewidth = 0.35, color = "grey55") +
+    geom_text(
+      data = subset(wf_df, type %in% c("Start","End")),
+      aes(x = x, y = ymax_plot, label = comma(round(value))),
+      vjust = -0.35, size = 3.5
+    ) +
+    scale_x_continuous(breaks = wf_df$x, labels = wf_df$label,
+                       expand = expansion(mult = c(0.02, 0.08))) +
+    scale_y_continuous(labels = comma,
+                       limits = if (!is.null(y_floor)) c(y_floor, NA) else NULL) +
+    scale_fill_manual(values = c("Start"="#6b6b6b","Increase"="#1b9e77",
+                                 "Decrease"="#d95f02","End"="#4a4a4a")) +
+    labs(
+      x = NULL, y = "Headcount",
+      title = "FCB upper-division headcount",
+      subtitle = "Cohort contributions to change F23 → F24"
+    ) +
+    theme_minimal(base_size = 12) +
+    theme(legend.position = "none",
+          axis.text.x = element_text(angle = 28, hjust = 1),
+          panel.grid.minor = element_blank())
+}
+
+wf_df <- make_waterfall_topk_df(
+  fcbud_waterfall,
+  term1 = "F23", term2 = "F24",
+  top_k = 5,               # try 5, 8, 12, etc.
+  order_by = "abs_diff",   # or "pct" / "diff"
+  verbose = TRUE
+)
+
+# sanity: steps equal full change
+with(wf_df, {
+  steps <- sum(value[type %in% c("Increase","Decrease")], na.rm = TRUE)
+  delta <- value[type=="End"] - value[type=="Start"]
+  message(sprintf("Sum of steps = %d | End-Start = %d", round(steps), round(delta)))
+})
+
+
+# 1) Make hover strings on wf_df
+wf_df <- wf_df %>%
+  mutate(
+    hover = dplyr::case_when(
+      type %in% c("Start","End") ~ paste0(label, ": ", comma(round(value))),
+      TRUE ~ paste0(label, "<br>Δ = ", comma(round(value)))
+    )
+  )
+
+# 2) Rebuild the ggplot with text mapped on the SAME geom_rect layer
+plot_waterfall_topk_interactive <- function(wf_df, y_floor = NULL) {
+  df <- wf_df
+
+  if (!is.null(y_floor)) {
+    df <- df %>%
+      mutate(
+        ymin_plot = pmax(ymin, y_floor),
+        ymax_plot = pmax(ymax, y_floor),
+        ymin_plot = ifelse(type %in% c("Start","End"), y_floor, ymin_plot)
+      )
+  } else {
+    df <- df %>% mutate(ymin_plot = ymin, ymax_plot = ymax)
+  }
+
+  connectors <- df %>%
+    filter(type %in% c("Increase","Decrease")) %>%
+    transmute(
+      x = x, xend = x + 1,
+      y = if (!is.null(y_floor)) pmax(ymax, y_floor) else ymax,
+      yend = if (!is.null(y_floor)) pmax(ymax, y_floor) else ymax
+    )
+
+  p <- ggplot(df) +
+    # <- text is mapped here, on the SAME rect layer with xmin/xmax/ymin/ymax
+    geom_rect(aes(xmin = xmin, xmax = xmax, ymin = ymin_plot, ymax = ymax_plot,
+                  fill = type, text = hover)) +
+    geom_segment(data = connectors, aes(x = x, xend = xend, y = y, yend = yend),
+                 linewidth = 0.35, color = "grey55") +
+    geom_text(
+      data = subset(df, type %in% c("Start","End")),
+      aes(x = x, y = ymax_plot, label = comma(round(value))),
+      vjust = -0.35, size = 3.5
+    ) +
+    scale_x_continuous(breaks = df$x, labels = df$label,
+                       expand = expansion(mult = c(0.02, 0.08))) +
+    scale_y_continuous(labels = comma,
+                       limits = if (!is.null(y_floor)) c(y_floor, NA) else NULL) +
+    scale_fill_manual(values = c("Start"="#6b6b6b","Increase"="#1b9e77",
+                                 "Decrease"="#d95f02","End"="#4a4a4a")) +
+    labs(
+      x = NULL, y = "Headcount",
+      title = "FCB upper-division headcount",
+      subtitle = "Cohort contributions to change F23 → F24"
+    ) +
+    theme_minimal(base_size = 12) +
+    theme(legend.position = "none",
+          axis.text.x = element_text(angle = 28, hjust = 1),
+          panel.grid.minor = element_blank())
+
+  ggplotly(p, tooltip = "text")
+}
+
+# 3) Use it
+plot_waterfall_topk_interactive(wf_df, y_floor = 2500)
+
+```
+
+# Page 3
+
+```{r}
+## Stacked contributions chart (A - E)
+
+contrib_long <- fcbud_waterfall %>%
+  filter(Cohort != "Total") %>%
+  filter(!is.na(A) & !is.na(B) & !is.na(C) & !is.na(D) & !is.na(E)) %>%
+  mutate(CohortLabel = sprintf("%s (S%d)", Cohort, as.integer(Semester))) %>%
+  pivot_longer(A:E, names_to = "Factors", values_to = "Value") %>%
+  group_by(CohortLabel) %>%
+  mutate(AbsDiff = first(abs(Diff))) %>%
+  ungroup()
+
+topK <- 5
+keep_rows <- contrib_long %>%
+  distinct(CohortLabel, AbsDiff) %>%
+  slice_head(n = topK) %>%
+  pull(CohortLabel)
+
+plot_df <- contrib_long %>%
+  filter(CohortLabel %in% keep_rows) %>%
+  mutate(
+    Factors = factor(Factors, levels = c("A","B","C","D","E"),
+                       labels = c("Admissions","% FCB","Retention","Net transfers","Promotion")),
+    CohortLabel = fct_reorder(CohortLabel, AbsDiff, .desc = TRUE)
+  )
+
+ggplot(plot_df, aes(x = CohortLabel, y = Value, fill = Factors)) +
+  geom_col() +
+  geom_hline(yintercept = 0, linewidth = 0.4, color = "grey40") +
+  scale_y_continuous(labels = comma) +
+  scale_fill_brewer(palette = "Set2") +
+  labs(
+    x = NULL, y = "Headcount contribution",
+    title = "Decomposition of cohort contributions to change F23 → F24",
+    subtitle = "Positive (above zero) and negative (below zero)"
+  ) +
+  theme_minimal(base_size = 12) +
+  theme(
+    axis.text.x = element_text(angle = 25, hjust = 1),
+    legend.position = "top"
+  )
+
+
+```
+
+# Page 4
+
+```{r}
+
+# --- 1) Build a tidy long table from your waterfall (A–E columns) ---
+# Assumes fcbud_waterfall has: Cohort, Semester, Diff, A,B,C,D,E, Pct_of_Total
+# Pick the same rows you plotted earlier (e.g., Top-K by |Diff|)
+top_k <- 5
+wf_long <- fcbud_waterfall %>%
+  filter(Cohort != "Total") %>%
+  arrange(desc(abs(Diff))) %>%
+  slice_head(n = top_k) %>%
+  mutate(Label = paste0(Cohort, " (S", Semester, ")")) %>%
+  select(Label, Cohort, Semester, Diff, `Admissions`=A, `% FCB`=B, `Retention`=C, `Net transfers`=D, `Promotion`=E) %>%
+  pivot_longer(cols = c(`Admissions`,`% FCB`,`Retention`,`Net transfers`,`Promotion`),
+               names_to = "Factor", values_to = "Contribution") %>%
+  # Nice hover text
+  mutate(hover = paste0(
+    Label, "<br>",
+    Factor, ": ", comma(round(Contribution)), "<br>",
+    "Total contribution (Δ): ", comma(round(Diff))
+  ))
+
+# order x by total absolute contribution, newest on left if you prefer
+wf_long <- wf_long %>%
+  group_by(Label) %>% mutate(abs_tot = first(abs(Diff))) %>% ungroup() %>%
+  mutate(Label = factor(Label, levels = unique(Label[order(-abs_tot)])))
+
+# --- 2) ggplot (your existing stacked chart), just add aes(text=hover) ---
+p_stack <- ggplot(wf_long, aes(x = Label, y = Contribution, fill = Factor, text = hover)) +
+  geom_col(position = "stack", width = 0.75) +
+  geom_hline(yintercept = 0, color = "grey60", linewidth = 0.5) +
+  scale_y_continuous(labels = comma) +
+  labs(
+    title = "Decomposition of cohort contributions to change F23 → F24",
+    subtitle = "Positive (above zero) and negative (below zero)",
+    x = NULL, y = "Headcount contribution", fill = "Factors"
+  ) +
+  theme_minimal(base_size = 12) +
+  theme(
+    panel.grid.minor = element_blank(),
+    axis.text.x = element_text(angle = 28, hjust = 1)
+  )
+
+# --- 3) Make it interactive ---
+ggplotly(p_stack, tooltip = "text")
+
+```

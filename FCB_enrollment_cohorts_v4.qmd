@@ -1,0 +1,346 @@
+---
+title: "FCB enrollment cohorts"
+author: "EMB"
+format:
+  dashboard:
+    self-contained: true
+editor: visual
+---
+
+# Page 1
+
+```{r}
+load(here::here("_outputs/Rdata/data_image1.RData"))
+# load packages needed by ALL chunks
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(plotly)
+library(scales)
+library(reactable)
+library(stringr)
+library(gt)
+library(forcats)   # << this was missing
+
+make_heat_gt <- function(df, title, key_col = NULL,
+                         palette = c("white", "steelblue")) {
+
+  # Normalize to a data frame with an explicit Cohort column
+  if (!is.null(key_col) && key_col %in% names(df)) {
+    df2 <- df
+    names(df2)[names(df2) == key_col] <- "Cohort"
+  } else {
+    if (is.null(rownames(df))) stop("Provide key_col when df has no rownames.")
+    df2 <- tibble::rownames_to_column(as.data.frame(df), var = "Cohort")
+  }
+
+  # Split body rows vs. Total row for computing the color scale
+  body_df   <- df2 %>% filter(Cohort != "Total")
+  total_row <- df2 %>% filter(Cohort == "Total")
+
+  # Numeric columns to color
+  num_cols <- names(body_df)[sapply(body_df, is.numeric)]
+  # Safe domain from body rows only
+  rng <- range(as.matrix(body_df[, num_cols, drop = FALSE]), na.rm = TRUE)
+  if (!is.finite(rng[1]) || !is.finite(rng[2])) rng <- c(0, 1)
+
+  # Build gt from the full table (keeps Total visible)
+  gt(df2, rowname_col = "Cohort") %>%
+    fmt_number(columns = everything(), decimals = 0, sep_mark = ",") %>%
+    sub_missing(columns = everything(), missing_text = "") %>%
+    # Color only non-Total rows, with domain from non-Total rows
+    data_color(
+      columns = all_of(num_cols),
+      rows    = Cohort != "Total",
+      colors  = col_numeric(palette = palette, domain = rng, na.color = "transparent")
+    ) %>%
+    # Emphasize forecast columns
+    tab_style(
+      style = list(cell_text(style = "italic", weight = "bold")),
+      locations = cells_body(columns = any_of(c("F25", "S26")))
+    ) %>%
+    # Optional: visually emphasize the Total row (no coloring already)
+    tab_style(
+      style = list(cell_text(weight = "bold")),
+      locations = cells_body(rows = Cohort == "Total")
+    ) %>%
+    tab_header(title = title) %>%
+    opt_row_striping()
+}
+
+```
+
+These tables show ...
+
+::: {layout-ncol="2"}
+```{r}
+gt_pre <- make_heat_gt(fcb_pre_df, title = "FCB pre-major enrollment (by cohort)")
+gt_pre
+```
+
+```{r}
+gt_ud  <- make_heat_gt(fcb_ud_df,  title = "FCB UD enrollment (by cohort)")
+gt_ud
+```
+:::
+
+# Page 2
+
+```{r}
+# 1) Prepare (order columns, tidy percent)
+tbl <- fcbud_waterfall %>%
+  mutate(
+    Semester = as.integer(Semester),
+    Group = ifelse(str_starts(Cohort, "FT"), "FT cohorts", 
+                   ifelse(Cohort == "Total", "Totals", "TR cohorts")),
+    Pct_of_Total = Pct_of_Total/100  # convert to proportion if it's in %
+  ) %>%
+  select(Group, Cohort, Semester, F23, F24, Diff, Pct_of_Total, A, B, C, D, E)
+
+# 2) Build a handsome gt table
+gt(tbl, groupname_col = "Group") %>%
+  tab_header(
+    title = md("**FCB upper-division headcount change: F23 → F24**"),
+    subtitle = "Waterfall rows with factor decomposition (A–E)"
+  ) %>%
+  tab_spanner(label = "Factors (Δ decomposition)", columns = c(A, B, C, D, E)) %>%
+  cols_label(
+    Cohort = "Cohort (pair)",
+    Semester = "Semester",
+    F23 = "F23",
+    F24 = "F24",
+    Diff = "Δ",
+    Pct_of_Total = "% of total",
+    A = "Admissions", B = "% FCB", C = "Retention",
+    D = "Net transfers", E = "Promotion"
+  ) %>%
+  fmt_number(columns = c(F23, F24, Diff, A:E), decimals = 0, use_seps = TRUE) %>%
+  fmt_percent(columns = Pct_of_Total, decimals = 1) %>%
+  data_color(
+    columns = Diff,
+    colors = scales::col_bin(
+      palette = c("#d95f02","#f0f0f0","#1b9e77"),
+      domain = c(min(tbl$Diff, na.rm=TRUE), max(tbl$Diff, na.rm=TRUE)),
+      bins = c(-Inf, 0, Inf)
+    )
+  ) %>%
+  tab_style(
+    style = list(cell_text(weight = "bold")),
+    locations = cells_row_groups(groups = "Totals")
+  ) %>%
+  tab_options(table.font.size = px(14)) %>%
+  opt_row_striping()
+
+
+```
+
+# Page 3
+
+```{r}
+## Classic Waterfall F23 --> F24
+
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(plotly)
+library(scales)
+library(reactable)
+library(stringr)
+library(gt)
+library(forcats)
+
+make_waterfall_topk_df <- function(fcbud_waterfall,
+                                   term1 = "F23",
+                                   term2 = "F24",
+                                   top_k = 10,
+                                   order_by = c("abs_diff","pct","diff"),
+                                   verbose = TRUE) {
+  order_by <- match.arg(order_by)
+  
+  # Split rows
+  has_total_row <- any(fcbud_waterfall$Cohort == "Total")
+  cohorts_only  <- fcbud_waterfall %>% filter(Cohort != "Total")
+  
+  # Totals (use Total row if present)
+  if (has_total_row) {
+    total_t1 <- fcbud_waterfall[[term1]][fcbud_waterfall$Cohort == "Total"]
+    total_t2 <- fcbud_waterfall[[term2]][fcbud_waterfall$Cohort == "Total"]
+  } else {
+    total_t1 <- sum(cohorts_only[[term1]], na.rm = TRUE)
+    total_t2 <- sum(cohorts_only[[term2]], na.rm = TRUE)
+  }
+  total_delta <- total_t2 - total_t1
+  
+  # Build a lookup of Cohort → Semester for labeling
+  sem_lookup <- fcbud_waterfall %>%
+    filter(Cohort != "Total") %>%
+    distinct(Cohort, Semester)
+  
+  # Order (with % fallback)
+  core <- cohorts_only %>%
+    mutate(
+      pct_used  = ifelse(is.na(Pct_of_Total), 100 * Diff / total_delta, Pct_of_Total),
+      order_key = case_when(
+        order_by == "abs_diff" ~ abs(Diff),
+        order_by == "pct"      ~ abs(pct_used),
+        TRUE                   ~ Diff
+      )
+    ) %>%
+    arrange(desc(order_key)) %>%
+    # ensure Semester is present (if your table already has it, this is harmless)
+    left_join(sem_lookup, by = "Cohort")
+  
+  n_avail <- nrow(core)
+  top_k   <- min(top_k, n_avail)
+  
+  # Build a lookup: Cohort -> Semester (from the already-built table)
+  sem_map <- with(
+    fcbud_waterfall %>% dplyr::filter(Cohort != "Total"),
+    stats::setNames(Semester, Cohort)
+  )
+  
+  # Top-K with (S#) labels via the lookup (no joins, no ambiguity)
+  top <- core %>%
+    dplyr::slice_head(n = top_k) %>%
+    dplyr::mutate(
+      Sem_for_label = sem_map[Cohort],                 # vectorized lookup
+      label = ifelse(
+        is.na(Sem_for_label),
+        Cohort,                                       # fallback if missing
+        paste0(Cohort, " (S", as.integer(Sem_for_label), ")")
+      )
+    ) %>%
+    dplyr::transmute(
+      step = Cohort,
+      label = label,
+      value = Diff,
+      type  = ifelse(Diff >= 0, "Increase", "Decrease")
+    )
+  
+  
+  # “Other” to force Start + steps = End (full)
+  other_sum <- total_delta - sum(top$value, na.rm = TRUE)
+  contrib <- if (abs(other_sum) > 0) {
+    bind_rows(
+      top,
+      tibble(step = "Other", label = "Other", value = other_sum,
+             type = ifelse(other_sum >= 0, "Increase", "Decrease"))
+    )
+  } else top
+  
+  if (verbose) {
+    message(sprintf("Top-K selected: %d (of %d). 'Other' = %+d. Sum(top + other) = %+d. Full Δ = %+d.",
+                    top_k, n_avail, round(other_sum),
+                    round(sum(contrib$value, na.rm = TRUE)), round(total_delta)))
+  }
+  
+  # Build sequence: Start → contributions → End
+  seq_df <- bind_rows(
+    tibble(step = "Start", label = term1, value = total_t1, type = "Start"),
+    contrib,
+    tibble(step = "End",   label = term2, value = total_t2, type = "End")
+  )
+  
+  # Floating bases via running total
+  running <- total_t1
+  ymin <- numeric(nrow(seq_df)); ymax <- numeric(nrow(seq_df))
+  for (i in seq_len(nrow(seq_df))) {
+    tp  <- seq_df$type[i]; val <- seq_df$value[i]
+    if (tp == "Start") { ymin[i] <- 0; ymax[i] <- total_t1; running <- total_t1 }
+    else if (tp %in% c("Increase","Decrease")) { ymin[i] <- running; running <- running + val; ymax[i] <- running }
+    else if (tp == "End") { ymin[i] <- 0; ymax[i] <- total_t2 }
+  }
+  
+  seq_df$ymin <- ymin; seq_df$ymax <- ymax
+  seq_df$x    <- seq_along(seq_df$step)
+  seq_df$xmin <- seq_df$x - 0.42
+  seq_df$xmax <- seq_df$x + 0.42
+  seq_df
+}
+
+wf_df <- make_waterfall_topk_df(
+  fcbud_waterfall,
+  term1 = "F23", term2 = "F24",
+  top_k = 5,               # try 5, 8, 12, etc.
+  order_by = "abs_diff",   # or "pct" / "diff"
+  verbose = TRUE
+)
+
+# Custom order vector
+desired_order <- c("F23", "FT21/FT22 (S5)", "TR22/TR23 (S3)", "FT20/FT21 (S7)",
+                   "TR20/TR21 (S7)", "TR23/TR24 (S1)", "Other", "F24")
+
+# Ensure labels match those in wf_df$label exactly
+wf_df$label <- factor(wf_df$label, levels = desired_order)
+wf_df <- wf_df[order(as.numeric(wf_df$label)), ]
+
+plot_ly(
+  wf_df,
+  type = "waterfall",
+  x = ~label,
+  y = ~value,
+  measure = ~ifelse(type == "Start", "absolute",
+                    ifelse(type == "End", "total", "relative")),
+  text = ~comma(round(value)),
+  textposition = "outside",
+  connector = list(line = list(color = "rgba(0,0,0,0.3)", width = 1.5)),
+  decreasing = list(marker = list(color = "#d95f02")),
+  increasing = list(marker = list(color = "#1b9e77")),
+  totals     = list(marker = list(color = "#6b6b6b"))
+) %>%
+  layout(
+    title = "FCB upper-division headcount<br><sup>Cohort contributions to change F23 → F24</sup>",
+    yaxis = list(title = "Headcount", range = c(3000, NA)),
+    xaxis = list(title = ""),
+    showlegend = FALSE
+  )
+
+```
+
+# Page 4
+
+```{r}
+
+# Assumes fcbud_waterfall has: Cohort, Semester, Diff, A,B,C,D,E, Pct_of_Total
+# Pick the same rows you plotted earlier (e.g., Top-K by |Diff|)
+top_k <- 5
+wf_long <- fcbud_waterfall %>%
+  filter(Cohort != "Total") %>%
+  arrange(desc(abs(Diff))) %>%
+  slice_head(n = top_k) %>%
+  mutate(Label = paste0(Cohort, " (S", Semester, ")")) %>%
+  select(Label, Cohort, Semester, Diff, `Admissions`=A, `% FCB`=B, `Retention`=C, `Net transfers`=D, `Promotion`=E) %>%
+  pivot_longer(cols = c(`Admissions`,`% FCB`,`Retention`,`Net transfers`,`Promotion`),
+               names_to = "Factor", values_to = "Contribution") %>%
+  # Nice hover text
+  mutate(hover = paste0(
+    Label, "<br>",
+    Factor, ": ", comma(round(Contribution)), "<br>",
+    "Total contribution (Δ): ", comma(round(Diff))
+  ))
+
+# order x by total absolute contribution, newest on left if you prefer
+wf_long <- wf_long %>%
+  group_by(Label) %>% mutate(abs_tot = first(abs(Diff))) %>% ungroup() %>%
+  mutate(Label = factor(Label, levels = unique(Label[order(-abs_tot)])))
+
+# --- 2) ggplot (your existing stacked chart), just add aes(text=hover) ---
+p_stack <- ggplot(wf_long, aes(x = Label, y = Contribution, fill = Factor, text = hover)) +
+  geom_col(position = "stack", width = 0.75) +
+  geom_hline(yintercept = 0, color = "grey60", linewidth = 0.5) +
+  scale_y_continuous(labels = comma) +
+  labs(
+    title = "Decomposition of cohort contributions to change F23 → F24",
+    subtitle = "Positive (above zero) and negative (below zero)",
+    x = NULL, y = "Headcount contribution", fill = "Factors"
+  ) +
+  theme_minimal(base_size = 12) +
+  theme(
+    panel.grid.minor = element_blank(),
+    axis.text.x = element_text(angle = 28, hjust = 1)
+  )
+
+# --- 3) Make it interactive ---
+ggplotly(p_stack, tooltip = "text")
+
+```

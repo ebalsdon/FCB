@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="EMB">
+
+<title>Test</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="Test_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Test_files/libs/quarto-html/quarto.js"></script>
+<script src="Test_files/libs/quarto-html/popper.min.js"></script>
+<script src="Test_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Test_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Test_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Test_files/libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Test_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Test_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Test_files/libs/bootstrap/bootstrap-f9c3a980a829ab9d6a74b295b7269fb0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="Test_files/libs/quarto-dashboard/quarto-dashboard.js"></script>
+<script src="Test_files/libs/quarto-dashboard/stickythead.js"></script>
+<script src="Test_files/libs/quarto-dashboard/datatables.min.js" kdttablesentinel="true"></script>
+<script src="Test_files/libs/quarto-dashboard/pdfmake.min.js" kdttablesentinel="true"></script>
+<script src="Test_files/libs/quarto-dashboard/vfs_fonts.js" kdttablesentinel="true"></script>
+<script src="Test_files/libs/quarto-dashboard/web-components.js" type="module"></script>
+<script src="Test_files/libs/quarto-dashboard/components.js"></script>
+<link href="Test_files/libs/quarto-dashboard/datatables.min.css" rel="stylesheet" kdttablesentinel="true">
+<script src="Test_files/libs/core-js-2.5.3/shim.min.js"></script>
+
+<script src="Test_files/libs/react-18.2.0/react.min.js"></script>
+
+<script src="Test_files/libs/react-18.2.0/react-dom.min.js"></script>
+
+<script src="Test_files/libs/reactwidget-2.0.0/react-tools.js"></script>
+
+<link href="Test_files/libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+
+<script src="Test_files/libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+
+<link href="Test_files/libs/reactable-0.4.4/reactable.css" rel="stylesheet">
+
+<script src="Test_files/libs/reactable-binding-0.4.4/reactable.js"></script>
+
+<script src="Test_files/libs/plotly-binding-4.11.0/plotly.js"></script>
+
+<script src="Test_files/libs/typedarray-0.1/typedarray.min.js"></script>
+
+<script src="Test_files/libs/jquery-3.5.1/jquery.min.js"></script>
+
+<link href="Test_files/libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+
+<script src="Test_files/libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+
+<link href="Test_files/libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
+
+<script src="Test_files/libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+
+
+
+</head>
+
+<body class="quarto-dashboard dashboard-fill fullcontent">
+
+<header id="quarto-dashboard-header">
+<nav class="navbar navbar-expand-md slim" data-bs-theme="dark">
+  <div class="navbar-container container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-controls="dashboard-collapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>    
+
+
+    <div class="navbar-brand-container">       
+
+      <div class="navbar-title">
+        <div class="navbar-title-text"><a href="#">Test</a></div>
+        
+        <div class="navbar-author">EMB</div>
+      </div>
+    </div>
+<div id="dashboard-collapse" class="navbar-collapse collapse"><ul class="navbar-nav navbar-nav-scroll me-auto" role="tablist"><li class="nav-item" role="presentation"><a id="tab-page-1" class="nav-link active" data-bs-toggle="tab" role="tab" data-bs-target="#page-1" data-scrolling="false" href="#page-1" aria-controls="page-1" aria-selected="true"><span class="nav-link-text">Page 1</span></a></li><li class="nav-item" role="presentation"><a id="tab-page-2" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#page-2" data-scrolling="false" href="#page-2" aria-controls="page-2" aria-selected="false"><span class="nav-link-text">Page 2</span></a></li><li class="nav-item" role="presentation"><a id="tab-page-3" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#page-3" data-scrolling="false" href="#page-3" aria-controls="page-3" aria-selected="false"><span class="nav-link-text">Page 3</span></a></li><li class="nav-item" role="presentation"><a id="tab-page-4" class="nav-link" data-bs-toggle="tab" role="tab" data-bs-target="#page-4" data-scrolling="false" href="#page-4" aria-controls="page-4" aria-selected="false"><span class="nav-link-text">Page 4</span></a></li></ul></div></div>
+</nav>
+</header>
+<div class="page-layout-custom quarto-dashboard-content bslib-gap-spacing html-fill-container bslib-page-fill quarto-dashboard-pages">  
+
+<div class="bslib-grid-item html-fill-item tab-content bslib-grid" data-layout="fill" style="display: grid; grid-template-rows: minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
+<div id="page-1" class="dashboard-page tab-pane show active html-fill-item html-fill-container" data-orientation="rows" aria-labelledby="tab-page-1">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div class="reactable html-widget html-fill-item html-fill-container" id="htmlwidget-8779023caafd9620f539" style="width:auto;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-8779023caafd9620f539">{"x":{"tag":{"name":"Reactable","attribs":{"data":{"Label":["FT23/FT24 (S1)","FT22/FT23 (S3)","FT21/FT22 (S5)","FT20/FT21 (S7)","FT19/FT20 (S9)","FT18/FT19 (S11)","FT17/FT18 (S13)","FT17 (S15)","TR23/TR24 (S1)","TR22/TR23 (S3)","TR21/TR22 (S5)","TR20/TR21 (S7)","TR19/TR20 (S9)","TR19 (S11)","Total (SNA)"],"F23":[0,25,735,820,162,32,8,"NA",804,852,265,83,16,"NA",3802],"F24":[0,24,995,874,148,38,11,2,827,1055,246,46,29,8,4303],"Diff":[0,-1,260,54,-14,6,3,2,23,203,-19,-37,13,8,501],"Pct_of_Total":[0,-0.002,0.5189,0.1078,-0.0279,0.012,0.006,0.004,0.0459,0.4052,-0.0379,-0.0739,0.0259,0.016,1],"A":["NA",-1.6,187.5,74.1,-12.8,-3,0.7,"NA",-92.2,137.6,12.8,-8.4,1.9,"NA","NA"],"B":["NA",-0.2,58.2,97.5,7.1,-1.8,-0.1,"NA",21.8,27.3,18.3,4.5,-0.1,"NA","NA"],"C":["NA",-0.5,3.2,-21.7,-8.3,-10.2,2.5,"NA",0,22.9,-27.1,-37.3,8.4,"NA","NA"],"D":["NA",0.2,1.5,-90.7,12.1,11.1,-3.1,"NA",0,13.6,0.4,3.7,1,"NA","NA"],"E":["NA",0.9,-27.2,-1.4,4.4,0.9,-0.5,"NA",93.4,-19.9,-3.2,-0.4,0,"NA","NA"]},"columns":[{"id":"Label","name":"Label","type":"character","align":"left","width":180,"sticky":"left"},{"id":"F23","name":"F23","type":"numeric","align":"right","format":{"cell":{"digits":0,"separators":true},"aggregated":{"digits":0,"separators":true}}},{"id":"F24","name":"F24","type":"numeric","align":"right","format":{"cell":{"digits":0,"separators":true},"aggregated":{"digits":0,"separators":true}}},{"id":"Diff","name":"Diff","type":"numeric","align":"right","format":{"cell":{"digits":0,"separators":true},"aggregated":{"digits":0,"separators":true}},"style":[["#1b9e77"],["#d95f02"],["#1b9e77"],["#1b9e77"],["#d95f02"],["#1b9e77"],["#1b9e77"],["#1b9e77"],["#1b9e77"],["#1b9e77"],["#d95f02"],["#d95f02"],["#1b9e77"],["#1b9e77"],["#1b9e77"]]},{"id":"Pct_of_Total","name":"% of total","type":"numeric","align":"right","format":{"cell":{"digits":1,"percent":true},"aggregated":{"digits":1,"percent":true}}},{"id":"A","name":"Admissions","type":"numeric","align":"right","format":{"cell":{"digits":0,"separators":true},"aggregated":{"digits":0,"separators":true}}},{"id":"B","name":"% FCB","type":"numeric","align":"right","format":{"cell":{"digits":0,"separators":true},"aggregated":{"digits":0,"separators":true}}},{"id":"C","name":"Retention","type":"numeric","align":"right","format":{"cell":{"digits":0,"separators":true},"aggregated":{"digits":0,"separators":true}}},{"id":"D","name":"Net transfers","type":"numeric","align":"right","format":{"cell":{"digits":0,"separators":true},"aggregated":{"digits":0,"separators":true}}},{"id":"E","name":"Promotion","type":"numeric","align":"right","format":{"cell":{"digits":0,"separators":true},"aggregated":{"digits":0,"separators":true}}}],"filterable":true,"searchable":true,"defaultPageSize":20,"highlight":true,"striped":true,"dataKey":"80beffe38e829ddf918519f59ef86878"},"children":[]},"class":"reactR_markup"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div>
+<div id="page-2" class="dashboard-page tab-pane grid-skip html-fill-item html-fill-container" data-orientation="rows" aria-labelledby="tab-page-2">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div class="plotly html-widget html-fill-item html-fill-container" id="htmlwidget-781c73b697e8200328ca" style="width:100%;height:406px;"></div>
+<script type="application/json" data-for="htmlwidget-781c73b697e8200328ca">{"x":{"data":[{"x":[6.5800000000000001,6.5800000000000001,7.4199999999999999,7.4199999999999999,6.5800000000000001],"y":[4305,4303,4303,4305,4305],"text":"Other<br>Δ = -2","type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"transparent","dash":"solid"},"fill":"toself","fillcolor":"rgba(217,95,2,1)","hoveron":"fills","name":"Decrease","legendgroup":"Decrease","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[4.5800000000000001,4.5800000000000001,5.4199999999999999,5.4199999999999999,4.5800000000000001],"y":[4319,4282,4282,4319,4319],"text":"TR20/TR21 (S7)<br>Δ = -37","type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"transparent","dash":"solid"},"fill":"toself","fillcolor":"rgba(217,95,2,1)","hoveron":"fills","name":"Decrease","legendgroup":"Decrease","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[7.5800000000000001,7.5800000000000001,8.4199999999999999,8.4199999999999999,7.5800000000000001],"y":[2500,4303,4303,2500,2500],"text":"F24: 4,303","type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"transparent","dash":"solid"},"fill":"toself","fillcolor":"rgba(74,74,74,1)","hoveron":"fills","name":"End","legendgroup":"End","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[3.5800000000000001,3.5800000000000001,4.4199999999999999,4.4199999999999999,3.5800000000000001],"y":[4265,4319,4319,4265,4265],"text":"FT20/FT21 (S7)<br>Δ = 54","type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"transparent","dash":"solid"},"fill":"toself","fillcolor":"rgba(27,158,119,1)","hoveron":"fills","name":"Increase","legendgroup":"Increase","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1.5800000000000001,1.5800000000000001,2.4199999999999999,2.4199999999999999,1.5800000000000001],"y":[3802,4062,4062,3802,3802],"text":"FT21/FT22 (S5)<br>Δ = 260","type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"transparent","dash":"solid"},"fill":"toself","fillcolor":"rgba(27,158,119,1)","hoveron":"fills","name":"Increase","legendgroup":"Increase","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2.5800000000000001,2.5800000000000001,3.4199999999999999,3.4199999999999999,2.5800000000000001],"y":[4062,4265,4265,4062,4062],"text":"TR22/TR23 (S3)<br>Δ = 203","type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"transparent","dash":"solid"},"fill":"toself","fillcolor":"rgba(27,158,119,1)","hoveron":"fills","name":"Increase","legendgroup":"Increase","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[5.5800000000000001,5.5800000000000001,6.4199999999999999,6.4199999999999999,5.5800000000000001],"y":[4282,4305,4305,4282,4282],"text":"TR23/TR24 (S1)<br>Δ = 23","type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"transparent","dash":"solid"},"fill":"toself","fillcolor":"rgba(27,158,119,1)","hoveron":"fills","name":"Increase","legendgroup":"Increase","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0.58000000000000007,0.58000000000000007,1.4199999999999999,1.4199999999999999,0.58000000000000007],"y":[2500,3802,3802,2500,2500],"text":"F23: 3,802","type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"transparent","dash":"solid"},"fill":"toself","fillcolor":"rgba(107,107,107,1)","hoveron":"fills","name":"Start","legendgroup":"Start","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[2,3,null,3,4,null,4,5,null,5,6,null,6,7,null,7,8],"y":[4062,4062,null,4265,4265,null,4319,4319,null,4282,4282,null,4305,4305,null,4303,4303],"text":"","type":"scatter","mode":"lines","line":{"width":1.3228346456692912,"color":"rgba(140,140,140,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1,8],"y":[3802,4303],"text":["3,802","4,303"],"hovertext":["",""],"textfont":{"size":13.228346456692915,"color":"rgba(0,0,0,1)"},"type":"scatter","mode":"text","hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":47.88044831880449,"r":7.9701120797011216,"b":77.468403140283698,"l":59.775840597758425},"font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402243},"title":{"text":"FCB upper-division headcount","font":{"color":"rgba(0,0,0,1)","family":"","size":19.128268991282692},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.42320000000000008,9.0472000000000001],"tickmode":"array","ticktext":["F23","FT21/FT22 (S5)","TR22/TR23 (S3)","FT20/FT21 (S7)","TR20/TR21 (S7)","TR23/TR24 (S1)","Other","F24"],"tickvals":[1,2,3,4,5,6,7,8],"categoryorder":"array","categoryarray":["F23","FT21/FT22 (S5)","TR22/TR23 (S3)","FT20/FT21 (S7)","TR20/TR21 (S7)","TR23/TR24 (S1)","Other","F24"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.9850560398505608,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":12.7521793275218},"tickangle":-28,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.72455564360919278,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402243}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[2409.0500000000002,4409.9499999999998],"tickmode":"array","ticktext":["2,500","3,000","3,500","4,000"],"tickvals":[2500,3000,3500,4000],"categoryorder":"array","categoryarray":["2,500","3,000","3,500","4,000"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.9850560398505608,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.72455564360919278,"zeroline":false,"anchor":"x","title":{"text":"Headcount","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402243}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"29b03a1468":{"xmin":{},"xmax":{},"ymin":{},"ymax":{},"fill":{},"text":{},"type":"scatter"},"29b03b9860cf":{"x":{},"y":{},"xend":{},"yend":{}},"29b0f082032":{"x":{},"y":{},"label":{}}},"cur_data":"29b03a1468","visdat":{"29b03a1468":["function (y) ","x"],"29b03b9860cf":["function (y) ","x"],"29b0f082032":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div>
+<div id="page-3" class="dashboard-page tab-pane grid-skip html-fill-item html-fill-container" data-orientation="rows" aria-labelledby="tab-page-3">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<img src="Test_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid quarto-dashboard-img-contain">
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+</div>
+</div>
+<div id="page-4" class="dashboard-page tab-pane grid-skip html-fill-item html-fill-container" data-orientation="rows" aria-labelledby="tab-page-4">
+<div class="html-fill-item html-fill-container bslib-grid" style="display: grid; grid-template-rows: minmax(3em, 1fr); grid-auto-columns: minmax(0, 1fr);">
+<div class="card cell html-fill-item html-fill-container bslib-card" data-bslib-card-init="" data-require-bs-caller="card()" data-full-screen="false">
+<div class="card-body html-fill-item html-fill-container">
+<div class="cell-output-display html-fill-item html-fill-container">
+<div class="plotly html-widget html-fill-item html-fill-container" id="htmlwidget-10a352ae1190b7e84a13" style="width:100%;height:406px;"></div>
+<script type="application/json" data-for="htmlwidget-10a352ae1190b7e84a13">{"x":{"data":[{"orientation":"v","width":[0.75,0.75,0.75,0.75,0.75],"base":[192.19999999999999,174.09999999999999,74.099999999999994,3.7000000000000002,93.400000000000006],"x":[1,2,3,4,5],"y":[58.200000000000017,27.300000000000011,97.5,4.4999999999999991,21.799999999999997],"text":["FT21/FT22 (S5)<br>% FCB: 58<br>Total contribution (Δ): 260","TR22/TR23 (S3)<br>% FCB: 27<br>Total contribution (Δ): 203","FT20/FT21 (S7)<br>% FCB: 98<br>Total contribution (Δ): 54","TR20/TR21 (S7)<br>% FCB: 4<br>Total contribution (Δ): -37","TR23/TR24 (S1)<br>% FCB: 22<br>Total contribution (Δ): 23"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(248,118,109,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"% FCB","legendgroup":"% FCB","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.75,0.75,0.75,0.75,0.75],"base":[4.7000000000000002,36.5,0,-46.099999999999994,-92.200000000000003],"x":[1,2,3,4,5],"y":[187.5,137.59999999999999,74.099999999999994,8.3999999999999986,92.200000000000003],"text":["FT21/FT22 (S5)<br>Admissions: 188<br>Total contribution (Δ): 260","TR22/TR23 (S3)<br>Admissions: 138<br>Total contribution (Δ): 203","FT20/FT21 (S7)<br>Admissions: 74<br>Total contribution (Δ): 54","TR20/TR21 (S7)<br>Admissions: -8<br>Total contribution (Δ): -37","TR23/TR24 (S1)<br>Admissions: -92<br>Total contribution (Δ): 23"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(163,165,0,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Admissions","legendgroup":"Admissions","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.75,0.75,0.75,0.75,0.75],"base":[3.2000000000000002,22.899999999999999,-113.8,0,93.400000000000006],"x":[1,2,3,4,5],"y":[1.5,13.600000000000001,90.700000000000003,3.7000000000000002,0],"text":["FT21/FT22 (S5)<br>Net transfers: 2<br>Total contribution (Δ): 260","TR22/TR23 (S3)<br>Net transfers: 14<br>Total contribution (Δ): 203","FT20/FT21 (S7)<br>Net transfers: -91<br>Total contribution (Δ): 54","TR20/TR21 (S7)<br>Net transfers: 4<br>Total contribution (Δ): -37","TR23/TR24 (S1)<br>Net transfers: 0<br>Total contribution (Δ): 23"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(0,191,125,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Net transfers","legendgroup":"Net transfers","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.75,0.75,0.75,0.75,0.75],"base":[-27.199999999999999,-19.899999999999999,-23.099999999999998,-37.699999999999996,0],"x":[1,2,3,4,5],"y":[27.199999999999999,19.899999999999999,1.3999999999999986,0.39999999999999858,93.400000000000006],"text":["FT21/FT22 (S5)<br>Promotion: -27<br>Total contribution (Δ): 260","TR22/TR23 (S3)<br>Promotion: -20<br>Total contribution (Δ): 203","FT20/FT21 (S7)<br>Promotion: -1<br>Total contribution (Δ): 54","TR20/TR21 (S7)<br>Promotion: 0<br>Total contribution (Δ): -37","TR23/TR24 (S1)<br>Promotion: 93<br>Total contribution (Δ): 23"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(0,176,246,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Promotion","legendgroup":"Promotion","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.75,0.75,0.75,0.75,0.75],"base":[0,0,-21.699999999999999,-37.299999999999997,0],"x":[1,2,3,4,5],"y":[3.2000000000000002,22.899999999999999,21.699999999999999,37.299999999999997,0],"text":["FT21/FT22 (S5)<br>Retention: 3<br>Total contribution (Δ): 260","TR22/TR23 (S3)<br>Retention: 23<br>Total contribution (Δ): 203","FT20/FT21 (S7)<br>Retention: -22<br>Total contribution (Δ): 54","TR20/TR21 (S7)<br>Retention: -37<br>Total contribution (Δ): -37","TR23/TR24 (S1)<br>Retention: 0<br>Total contribution (Δ): 23"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(231,107,243,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Retention","legendgroup":"Retention","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[0.40000000000000002,5.5999999999999996],"y":[0,0],"text":"","type":"scatter","mode":"lines","line":{"width":1.8897637795275593,"color":"rgba(153,153,153,1)","dash":"solid"},"hoveron":"points","showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":47.88044831880449,"r":7.9701120797011216,"b":77.468403140283698,"l":53.399750933997524},"font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402243},"title":{"text":"Decomposition of cohort contributions to change F23 → F24","font":{"color":"rgba(0,0,0,1)","family":"","size":19.128268991282692},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,5.5999999999999996],"tickmode":"array","ticktext":["FT21/FT22 (S5)","TR22/TR23 (S3)","FT20/FT21 (S7)","TR20/TR21 (S7)","TR23/TR24 (S1)"],"tickvals":[1,2,3,4,5],"categoryorder":"array","categoryarray":["FT21/FT22 (S5)","TR22/TR23 (S3)","FT20/FT21 (S7)","TR20/TR21 (S7)","TR23/TR24 (S1)"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.9850560398505608,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":12.7521793275218},"tickangle":-28,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.72455564360919278,"zeroline":false,"anchor":"y","title":{"text":"","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402243}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-132.00999999999999,268.61000000000001],"tickmode":"array","ticktext":["-100","0","100","200"],"tickvals":[-100,0,100,200],"categoryorder":"array","categoryarray":["-100","0","100","200"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.9850560398505608,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":12.7521793275218},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.72455564360919278,"zeroline":false,"anchor":"x","title":{"text":"Headcount contribution","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402243}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":12.7521793275218},"title":{"text":"Factors","font":{"color":"rgba(0,0,0,1)","family":"","size":15.940224159402243}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"29b020ac5d45":{"x":{},"y":{},"fill":{},"text":{},"type":"bar"},"29b078af1fbe":{"yintercept":{}}},"cur_data":"29b020ac5d45","visdat":{"29b020ac5d45":["function (y) ","x"],"29b078af1fbe":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<bslib-tooltip placement="auto" bsoptions="[]" data-require-bs-version="5" data-require-bs-caller="tooltip()">
+    <template>Expand</template>
+    <span class="bslib-full-screen-enter badge rounded-pill">
+        <svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" style="height:1em;width:1em;" aria-hidden="true" role="img"><path d="M20 5C20 4.4 19.6 4 19 4H13C12.4 4 12 3.6 12 3C12 2.4 12.4 2 13 2H21C21.6 2 22 2.4 22 3V11C22 11.6 21.6 12 21 12C20.4 12 20 11.6 20 11V5ZM4 19C4 19.6 4.4 20 5 20H11C11.6 20 12 20.4 12 21C12 21.6 11.6 22 11 22H3C2.4 22 2 21.6 2 21V13C2 12.4 2.4 12 3 12C3.6 12 4 12.4 4 13V19Z"></path></svg>
+    </span>
+</bslib-tooltip><script data-bslib-card-init="">bslib.Card.initializeAllCards();</script></div>
+<div id="3ade8a4a-fb1d-4a6c-8409-ac45482d5fc9" class="hidden html-fill-item html-fill-container">
+
+</div>
+</div>
+</div>
+</div>
+
+
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /container fluid -->
+
+<script type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (_event) {
+  if (window.bslib.Card) {
+    window.bslib.Card.initializeAllCards();
+  }
+}); 
+</script>
+  
+
+
+
+</body></html>
