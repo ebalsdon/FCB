@@ -70,8 +70,6 @@ make_heat_gt <- function(df, title, key_col = NULL,
 
 ```
 
-Tables show FCB pre-major (left) and upper-division (right) headcounts by term and by admissions cohort. First-time cohorts are labeled FT, transfer cohorts are labeled TR. The columns for F25 and S26 are forecasts from a non-homogeneous Markov chain model using historical transition probabilities for major migration, attrition, graduation, and promotion to upper-division status. (Data source: ASIR Cohort Analysis Report Builder, Enrollment Services reports on F25 incoming cohorts.) Use the "Expand" button at lower-right to view full tables.
-
 ::: {layout-ncol="2"}
 ```{r}
 gt_pre <- make_heat_gt(fcb_pre_df, title = "FCB pre-major enrollment (by cohort)")
@@ -83,6 +81,8 @@ gt_ud  <- make_heat_gt(fcb_ud_df,  title = "FCB UD enrollment (by cohort)")
 gt_ud
 ```
 :::
+
+Tables show FCB pre-major (left) and upper-division (right) headcounts by term and by admissions cohort. Rows represent First-time (FT) and Transfer (TR) cohorts by year of entry. The columns for F25 and S26 are ***forecasts*** from a non-homogeneous Markov chain model using historical transition probabilities for major migration (or "internal transfer"), attrition, graduation, and promotion to upper-division status. (Data source: ASIR Cohort Analysis Report Builder, Enrollment Services reports on F25 incoming cohorts.) Use the "Expand" button at lower-right to view full tables.
 
 # Totals
 
@@ -119,8 +119,13 @@ gt(tbl, groupname_col = "Group") %>%
     F24 = "F24",
     Diff = "Δ",
     Pct_of_Total = "% of total",
-    A = "Admissions", B = "% FCB", C = "Retention",
-    D = "Net transfers", E = "Promotion"
+    A = "Admissions N", B = "% FCB", C = "Retention",
+    D = "Internal Transfers", E = "Promotion"
+  ) %>%
+  # Add this line to center columns (including headers and values)
+  cols_align(
+    align = "center",
+    columns = everything()
   ) %>%
   fmt_number(columns = c(F23, F24, Diff, A:E), decimals = 0, use_seps = TRUE) %>%
   fmt_percent(columns = Pct_of_Total, decimals = 1) %>%
@@ -138,9 +143,9 @@ gt(tbl, groupname_col = "Group") %>%
   ) %>%
   tab_options(table.font.size = px(14)) %>%
   opt_row_striping()
-
-
 ```
+
+This table breaks down the growth in FCB upper-division enrollment between Fall 2023 and Fall 2024 into contributing factors, including admissions size and FCB composition, retention and graduation, internal transfers, and promotion to upper-division status. Each row shows how much each factor contributed to the headcount change of +501: a row sum of the Factors yields the color-coded Δ. (Data source: ASIR Cohort Analysis Report Builder.) *Want more details? \[See the full method.\]*
 
 # Waterfall visual
 
