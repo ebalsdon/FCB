@@ -40,6 +40,13 @@ make_heat_gt <- function(df, title, key_col = NULL,
 
   # Numeric columns to color
   num_cols <- names(body_df)[sapply(body_df, is.numeric)]
+  # Remove the first four columns/terms from the numeric columns
+  if (length(num_cols) > 4) {
+  drop_cols <- num_cols[1:4]
+  df2 <- df2 %>% select(-all_of(drop_cols))
+  num_cols <- setdiff(num_cols, drop_cols)
+}
+  
   # Safe domain from body rows only
   rng <- range(as.matrix(body_df[, num_cols, drop = FALSE]), na.rm = TRUE)
   if (!is.finite(rng[1]) || !is.finite(rng[2])) rng <- c(0, 1)
@@ -355,5 +362,107 @@ p_stack <- ggplot(wf_long, aes(x = Label, y = Contribution, fill = Factor, text 
 
 # --- 3) Make it interactive ---
 ggplotly(p_stack, tooltip = "text")
+
+```
+
+# Backcast table
+
+```{r}
+# 1. Remove FT25, FT26, TR25, TR26
+backcast_table <- backcast_table %>%
+  filter(!Cohort %in% c("FT25", "FT26", "TR25", "TR26"))
+
+# 2. Set NA forecasts to zero (all *_forecast columns)
+backcast_table <- backcast_table %>%
+  mutate(across(ends_with("_forecast"), ~ifelse(is.na(.x), 0, .x)))
+
+# 3. Calculate delta columns if they are not present
+if(!"F24_pre_error" %in% names(backcast_table)) {
+  backcast_table <- backcast_table %>%
+    mutate(
+      F24_pre_error  = F24_pre_forecast - F24_pre_actual,
+      F24_ud_error   = F24_ud_forecast  - F24_ud_actual,
+      S25_pre_error  = S25_pre_forecast - S25_pre_actual,
+      S25_ud_error   = S25_ud_forecast  - S25_ud_actual
+    )
+}
+
+# 4. FT17/TR19: recalculate Δ columns (all <= 0)
+backcast_table <- backcast_table %>%
+  mutate(
+    F24_pre_error  = ifelse(Cohort %in% c("FT17", "TR19"),
+                            F24_pre_forecast - F24_pre_actual, F24_pre_error),
+    F24_ud_error   = ifelse(Cohort %in% c("FT17", "TR19"),
+                            F24_ud_forecast - F24_ud_actual, F24_ud_error),
+    S25_pre_error  = ifelse(Cohort %in% c("FT17", "TR19"),
+                            S25_pre_forecast - S25_pre_actual, S25_pre_error),
+    S25_ud_error   = ifelse(Cohort %in% c("FT17", "TR19"),
+                            S25_ud_forecast - S25_ud_actual, S25_ud_error)
+  )
+
+# 5. FT24/TR24: model columns NA, Δ columns 0
+backcast_table <- backcast_table %>%
+  mutate(
+    across(ends_with("_forecast"), ~ifelse(Cohort %in% c("FT24", "TR24"), NA_real_, .x)),
+    across(ends_with("_error"),    ~ifelse(Cohort %in% c("FT24", "TR24"), 0, .x))
+  )
+
+# 6. Totals row (ignore NAs)
+# Remove any existing Total row before adding a new one
+backcast_table <- backcast_table %>% 
+  filter(Cohort != "Total")
+
+# Add the new totals row as before
+totals_row <- backcast_table %>%
+  summarise(across(where(is.numeric), ~sum(.x, na.rm = TRUE))) %>%
+  mutate(Cohort = "Total") %>%
+  select(Cohort, everything())
+
+backcast_table <- bind_rows(backcast_table, totals_row)
+
+# 7. Build the gt table with your formatting and vertical lines after each Δ column
+backcast_gt <- gt(backcast_table) %>%
+  tab_header(
+    title = md("**Back-cast F24 Enrollment by Cohort (using S24 info only)**"),
+    subtitle = "Forecast vs. actuals for FCB Pre-Major and Upper-Division"
+  ) %>%
+  cols_label(
+    F24_pre_actual    = "F24 Pre-Major (actual)",
+    F24_pre_forecast  = "F24 Pre-Major (model)",
+    F24_pre_error     = "Δ (model - actual)",
+    F24_ud_actual     = "F24 UD (actual)",
+    F24_ud_forecast   = "F24 UD (model)",
+    F24_ud_error      = "Δ (model - actual)",
+    S25_pre_actual    = "S25 Pre-Major (actual)",
+    S25_pre_forecast  = "S25 Pre-Major (model)",
+    S25_pre_error     = "Δ (model - actual)",
+    S25_ud_actual     = "S25 UD (actual)",
+    S25_ud_forecast   = "S25 UD (model)",
+    S25_ud_error      = "Δ (model - actual)"    
+  ) %>%
+  fmt_number(
+    columns = where(is.numeric),
+    decimals = 0,
+    sep_mark = ","
+  ) %>%
+  sub_missing(
+    columns = everything(),
+    missing_text = ""
+  ) %>%
+  cols_align(align = "center", columns = everything()) %>%
+  tab_options(table.font.size = px(14)) %>%
+  opt_row_striping() %>%
+  # Add vertical lines after each delta column
+  tab_style(
+    style = cell_borders(sides = "right", color = "grey60", weight = px(2)),
+    locations = list(
+      cells_body(columns = "F24_pre_error"),
+      cells_body(columns = "F24_ud_error"),
+      cells_body(columns = "S25_pre_error")
+    )
+  )
+
+# 5. 
+backcast_gt
 
 ```
