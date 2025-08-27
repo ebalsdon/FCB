@@ -152,7 +152,7 @@ gt(tbl, groupname_col = "Group") %>%
   opt_row_striping()
 ```
 
-This table breaks down the growth in FCB upper-division enrollment between Fall 2023 and Fall 2024 into contributing factors, including admissions size and FCB composition, retention and graduation, internal transfers, and promotion to upper-division status. Each row shows how much each factor contributed to the headcount change of +501: a row sum of the Factors yields the color-coded Δ. (Data source: ASIR Cohort Analysis Report Builder.) *Want more details? \[See the full method.\]*
+This table breaks down the growth in FCB upper-division enrollment between Fall 2023 and Fall 2024 into contributing factors, including admissions size and FCB composition, retention and graduation, internal transfers, and promotion to upper-division status. Each row shows how much each factor contributed to the headcount change of +501: a row sum of the Factors yields the color-coded Δ. (Data source: ASIR Cohort Analysis Report Builder.) *Want more details? \See the full decomposition method.\*
 
 # Waterfall visual
 
@@ -368,6 +368,7 @@ ggplotly(p_stack, tooltip = "text")
 # Backcast table
 
 ```{r}
+
 # 1. Remove FT25, FT26, TR25, TR26
 backcast_table <- backcast_table %>%
   filter(!Cohort %in% c("FT25", "FT26", "TR25", "TR26"))
@@ -376,16 +377,24 @@ backcast_table <- backcast_table %>%
 backcast_table <- backcast_table %>%
   mutate(across(ends_with("_forecast"), ~ifelse(is.na(.x), 0, .x)))
 
-# 3. Calculate delta columns if they are not present
-if(!"F24_pre_error" %in% names(backcast_table)) {
-  backcast_table <- backcast_table %>%
+# 3 Insert FT24 and TR24 expected values as of Spring 24 (emails)
+backcast_table <- backcast_table %>% mutate(F24_pre_forecast = case_when(Cohort == "FT24" ~ 1250, 
+                                                                         Cohort == "TR24" ~ 200, TRUE ~ F24_pre_forecast))
+backcast_table <- backcast_table %>% mutate(F24_ud_forecast = case_when(Cohort == "FT24" ~ 0, 
+                                                                        Cohort == "TR24" ~ 700, TRUE ~ F24_ud_forecast))
+backcast_table <- backcast_table %>% mutate(S25_pre_forecast = case_when(Cohort == "FT24" ~ 1400, 
+                                                                         Cohort == "TR24" ~ 50, TRUE ~ S25_pre_forecast))
+backcast_table <- backcast_table %>% mutate(S25_ud_forecast = case_when(Cohort == "FT24" ~ 0, 
+                                                                        Cohort == "TR24" ~ 950, TRUE ~ S25_ud_forecast))
+
+# 4. Re-calculate delta columns
+backcast_table <- backcast_table %>%
     mutate(
       F24_pre_error  = F24_pre_forecast - F24_pre_actual,
       F24_ud_error   = F24_ud_forecast  - F24_ud_actual,
       S25_pre_error  = S25_pre_forecast - S25_pre_actual,
       S25_ud_error   = S25_ud_forecast  - S25_ud_actual
     )
-}
 
 # 4. FT17/TR19: recalculate Δ columns (all <= 0)
 backcast_table <- backcast_table %>%
@@ -400,14 +409,8 @@ backcast_table <- backcast_table %>%
                             S25_ud_forecast - S25_ud_actual, S25_ud_error)
   )
 
-# 5. FT24/TR24: model columns NA, Δ columns 0
-backcast_table <- backcast_table %>%
-  mutate(
-    across(ends_with("_forecast"), ~ifelse(Cohort %in% c("FT24", "TR24"), NA_real_, .x)),
-    across(ends_with("_error"),    ~ifelse(Cohort %in% c("FT24", "TR24"), 0, .x))
-  )
 
-# 6. Totals row (ignore NAs)
+# 5. Totals row (ignore NAs)
 # Remove any existing Total row before adding a new one
 backcast_table <- backcast_table %>% 
   filter(Cohort != "Total")
@@ -420,10 +423,10 @@ totals_row <- backcast_table %>%
 
 backcast_table <- bind_rows(backcast_table, totals_row)
 
-# 7. Build the gt table with your formatting and vertical lines after each Δ column
+# 6. Build the gt table with your formatting and vertical lines after each Δ column
 backcast_gt <- gt(backcast_table) %>%
   tab_header(
-    title = md("**Backcast of F24 Enrollment by Cohort: using information available in S24 only)**"),
+    title = md("**Backcast of F24 Enrollment by Cohort: using information available in S24 only**"),
     subtitle = "Forecast vs. actuals for FCB Pre-Major and Upper-Division"
   ) %>%
   cols_label(
@@ -462,7 +465,8 @@ backcast_gt <- gt(backcast_table) %>%
     )
   )
 
-# 5. 
+# 7. 
 backcast_gt
 
 ```
+A "backcast" tests the accuracy of a forecast model. This table presents the results of a hypothetical forecast of Fall 2024 and Spring 2025 enrollments using only information that was available in Spring 2024. How would the forecast model have done in predicting enrollment one and two semesters ahead? Results indicate ... 
