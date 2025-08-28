@@ -44,9 +44,9 @@ decompose_longstep_matrix <- function(mat_name, mat,
   # "What fraction of FCB at term k came from *any* entry college (numerator)
   #  relative to what came *only from FCB entry states* (denominator)."
   FCB_from_any <- FCB_termk
-  FCB_from_FCBonly <- mat["FCBud","FCBud"] + mat["FCBud","FCBpre"] +
-    mat["FCBpre","FCBud"] + mat["FCBpre","FCBpre"]
-  TransferFactor <- if (FCB_from_FCBonly > 0) FCB_from_any / FCB_from_FCBonly else NA_real_
+  FCBstarters_still_enrolled <- sum(mat["FCBud", states[states != "NE"]]) +
+                                sum(mat["FCBpre", states[states != "NE"]])
+  TransferFactor <- FCB_from_any / FCBstarters_still_enrolled
   
   # Store in percent to match existing convention
   data.frame(

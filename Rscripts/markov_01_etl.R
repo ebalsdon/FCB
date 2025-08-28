@@ -89,15 +89,16 @@ for (file_path in files) {
 library(glue)
 
 # --- Define cohort and term structure ---
-cohorts <- c(paste0("FT", 17:25), paste0("TR", 19:25))
+cohorts <- c(paste0("FT", 17:26), paste0("TR", 19:26))
 terms <- c("F17", "S18", "F18", "S19", "F19", "S20", "F20", "S21",
-           "F21", "S22", "F22", "S23", "F23", "S24", "F24", "S25", "F25", "S26")
+           "F21", "S22", "F22", "S23", "F23", "S24", "F24", "S25", 
+           "F25", "S26", "F26")
 
 term_starts <- c(
-  FT17 = "F17", FT18 = "F18", FT19 = "F19", FT20 = "F20",
-  FT21 = "F21", FT22 = "F22", FT23 = "F23", FT24 = "F24", FT25 = "F25",
+  FT17 = "F17", FT18 = "F18", FT19 = "F19", FT20 = "F20", FT21 = "F21", 
+  FT22 = "F22", FT23 = "F23", FT24 = "F24", FT25 = "F25", FT26 = "F26",
   TR19 = "F19", TR20 = "F20", TR21 = "F21", TR22 = "F22", TR23 = "F23",
-  TR24 = "F24", TR25 = "F25"
+  TR24 = "F24", TR25 = "F25", TR26 = "F26"
 )
 
 # --- Initialize output matrices ---
@@ -236,6 +237,9 @@ add_term_totals_range <- function(df, from_term = "F22", to_term = "S25") {
 # ---- add totals F22..S25 to clean (no-forecast) tables ----
 fcb_pre_df <- add_term_totals_range(fcb_pre_df, from_term = "F22", to_term = "S25")
 fcb_ud_df  <- add_term_totals_range(fcb_ud_df,  from_term = "F22", to_term = "S25")
+
+fcb_tot_df <- fcb_pre_df + fcb_ud_df
+
 
 # ---- save clean snapshot (no forecasts) ----
 save(fcb_pre_df, fcb_ud_df,

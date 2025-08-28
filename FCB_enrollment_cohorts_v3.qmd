@@ -292,8 +292,8 @@ plot_waterfall_topk <- function(wf_df, y_floor = NULL) {
                                  "Decrease"="#d95f02","End"="#4a4a4a")) +
     labs(
       x = NULL, y = "Headcount",
-      title = "FCB upper-division headcount",
-      subtitle = "Cohort contributions to change F23 → F24"
+      title = "FCB upper-division headcount change F23 → F24: Cohort contributions",
+      subtitle = ""
     ) +
     theme_minimal(base_size = 12) +
     theme(legend.position = "none",
@@ -388,7 +388,6 @@ plot_waterfall_topk_interactive(wf_df, y_floor = 2500)
 
 ```{r}
 
-# --- 1) Build a tidy long table from your waterfall (A–E columns) ---
 # Assumes fcbud_waterfall has: Cohort, Semester, Diff, A,B,C,D,E, Pct_of_Total
 # Pick the same rows you plotted earlier (e.g., Top-K by |Diff|)
 top_k <- 5

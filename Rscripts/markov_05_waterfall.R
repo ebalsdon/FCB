@@ -169,5 +169,5 @@ fcbud_waterfall <- build_fcbud_waterfall(
   include_singletons = TRUE, verbose = TRUE
 )
 
-View(fcbud_waterfall)
+save.image(here::here("_outputs/Rdata/data_image1.RData"))
 

@@ -17,11 +17,11 @@ matrix_view <- function(mat, as_percent = FALSE, digits = 2) {
   return(full)
 }
 
-matrix_view(transition_matrices[["FT24_1_1"]])
+matrix_view(transition_matrices[["FT22_4_5"]])
 
-matrix_view(transition_matrices[["TR23_1_1"]])
+matrix_view(transition_probabilities[["TR21_2_3"]])
 
-matrix_view(transition_probabilities[["TR20_4_5"]])
+matrix_view(transition_matrices[["TR21_2_3"]])
 
-matrix_view(transition_probabilities[["FT20_7_8"]])
+matrix_view(transition_probabilities[["FT17_4_5"]])
 
