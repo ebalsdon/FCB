@@ -385,7 +385,7 @@ backcast_table <- backcast_table %>% mutate(F24_ud_forecast = case_when(Cohort =
 backcast_table <- backcast_table %>% mutate(S25_pre_forecast = case_when(Cohort == "FT24" ~ 1400, 
                                                                          Cohort == "TR24" ~ 50, TRUE ~ S25_pre_forecast))
 backcast_table <- backcast_table %>% mutate(S25_ud_forecast = case_when(Cohort == "FT24" ~ 0, 
-                                                                        Cohort == "TR24" ~ 950, TRUE ~ S25_ud_forecast))
+                                                                        Cohort == "TR24" ~ 850, TRUE ~ S25_ud_forecast))
 
 # 4. Re-calculate delta columns
 backcast_table <- backcast_table %>%
@@ -469,4 +469,4 @@ backcast_gt <- gt(backcast_table) %>%
 backcast_gt
 
 ```
-A "backcast" tests the accuracy of a forecast model. This table presents the results of a hypothetical forecast of Fall 2024 and Spring 2025 enrollments using only information that was available in Spring 2024. How would the forecast model have done in predicting enrollment one and two semesters ahead? Results indicate ... 
+A "backcast" tests the accuracy of a forecast model. This table presents the results of a hypothetical forecast of Fall 2024 and Spring 2025 enrollments using only information that was available in Spring 2024. For the FT24 and TR24 cohorts, the table uses widely shared targets as-of Spring 2024 for Fall 2024 and a proxy forecast for S25. How would the forecast model have done in predicting enrollment one and two semesters ahead? Upper division headcount from continuing cohorts are forecasted with varying precision and much averaging out of +/- forecast errors across them. The earlier target of 900 TR24 transfers did not match the actual of 238 + 827 = 1065 in Fall 2024, and this contributes the largest share of forecast error. 
