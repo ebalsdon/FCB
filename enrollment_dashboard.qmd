@@ -426,8 +426,8 @@ backcast_table <- bind_rows(backcast_table, totals_row)
 # 6. Build the gt table with your formatting and vertical lines after each Δ column
 backcast_gt <- gt(backcast_table) %>%
   tab_header(
-    title = md("**Backcast of F24 Enrollment by Cohort: using information available in S24 only**"),
-    subtitle = "Forecast vs. actuals for FCB Pre-Major and Upper-Division"
+    title = md("**Backcast of F24 and S25 Headcount by Cohort**"),
+    subtitle = "Forecast vs. actuals for FCB Pre-Major and Upper-Division: uses information available in S24 only"
   ) %>%
   cols_label(
     F24_pre_actual    = "F24 Pre-Major (actual)",
