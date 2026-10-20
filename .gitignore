@@ -1,0 +1,35 @@
+##Keep these files local##
+_inputs/
+_outputs/
+.Rproj.user
+.Rhistory
+*.RData
+.Ruserdata
+
+
+
+
+
+
+
+.positai
+
+/.quarto/
+**/*.quarto_ipynb
+
+## Scratch, superseded and generated files ##
+temp5.R
+probe_quarto.R
+test_rscript.R
+run_source_code.R
+copilot-permission-test.txt
+Delta_View.R
+waterfallplotly.R
+Rscripts/Delta_View.R
+Rscripts/markov_03_forecast_F26.R
+Rscripts/markov_03_forecast_v2.R
+Rscripts/markov_03_forecast_debug.R
+Rscripts/markov_06_backcast.R
+Quarto/FCB_enrollment_cohorts.html
+Quarto/FCB_enrollment_cohorts.qmd
+Quarto/FCB_enrollment_cohorts_files/
