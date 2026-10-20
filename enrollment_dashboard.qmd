@@ -4,6 +4,8 @@ author: "EMB"
 format:
   dashboard:
     self-contained: true
+execute:
+  echo: false
 editor: visual
 ---
 
@@ -11,6 +13,15 @@ editor: visual
 
 ```{r}
 load(here::here("_outputs/Rdata/data_image1.RData"))
+forecast_note <- {
+  n_ref <- if (exists("forecast_n_reference")) forecast_n_reference else NA
+  rg <- if (exists("forecast_regime_aware")) isTRUE(forecast_regime_aware) else FALSE
+  up <- if (exists("forecast_regime_uplift")) forecast_regime_uplift else 0
+  paste0("Forecast settings: transition probabilities averaged over the ", n_ref, " most recent same-stage cohort(s); ",
+         if (rg) paste0("policy-adjusted for the transfer-into-pre-business screening (30 units + GPA standard, in effect since Fall 2025): transfers from other colleges into pre-business use the first post-policy transition",
+                        if (up != 0) paste0("; stage 3-4 promotion uplift of +", up) else "", ".")
+         else "no adjustment for the Fall 2025 transfer-screening policy (historical-average model).")
+}
 # load packages needed by ALL chunks
 library(dplyr)
 library(tidyr)
@@ -64,7 +75,7 @@ make_heat_gt <- function(df, title, key_col = NULL,
     # Emphasize forecast columns
     tab_style(
       style = list(cell_text(style = "italic", weight = "bold")),
-      locations = cells_body(columns = any_of(c("F25", "S26")))
+      locations = cells_body(columns = any_of(c("S27")))
     ) %>%
     # Optional: visually emphasize the Total row (no coloring already)
     tab_style(
@@ -89,7 +100,7 @@ gt_ud
 ```
 :::
 
-Tables show FCB pre-major (left) and upper-division (right) headcounts by term and by admissions cohort. Rows represent First-time (FT) and Transfer (TR) cohorts by year of entry. The columns for F25 and S26 are ***forecasts*** from a non-homogeneous Markov chain model using historical transition probabilities for major migration (or "internal transfer"), attrition, graduation, and promotion to upper-division status. (Data source: ASIR Cohort Analysis Report Builder, Enrollment Services reports on F25 incoming cohorts.) Use the "Expand" button at lower-right to view full tables.
+Tables show FCB pre-major (left) and upper-division (right) headcounts by term and by admissions cohort. Rows represent First-time (FT) and Transfer (TR) cohorts by year of entry. F26 is the latest actual term from the Fall 2026 cohort reports; S27 is forecast with a non-homogeneous Markov chain model using historical transition probabilities for major migration (or "internal transfer"), attrition, graduation, and promotion to upper-division status. Use the "Expand" button at lower-right to view full tables. `r forecast_note`
 
 # Totals
 
@@ -110,20 +121,20 @@ tbl <- fcbud_waterfall %>%
                    ifelse(Cohort == "Total", "Totals", "TR cohorts")),
     Pct_of_Total = Pct_of_Total/100  # convert to proportion if it's in %
   ) %>%
-  select(Group, Cohort, Semester, F23, F24, Diff, Pct_of_Total, A, B, C, D, E)
+  select(Group, Cohort, Semester, F24, F25, Diff, Pct_of_Total, A, B, C, D, E)
 
 # 2) Build a handsome gt table
 gt(tbl, groupname_col = "Group") %>%
   tab_header(
-    title = md("**FCB upper-division headcount change: F23 → F24**"),
+    title = md("**FCB upper-division headcount change: F24 → F25**"),
     subtitle = "Waterfall rows with factor decomposition"
   ) %>%
   tab_spanner(label = "Factors (Δ decomposition)", columns = c(A, B, C, D, E)) %>%
   cols_label(
     Cohort = "Cohort (pair)",
     Semester = "Semester",
-    F23 = "F23",
     F24 = "F24",
+    F25 = "F25",
     Diff = "Δ",
     Pct_of_Total = "% of total",
     A = "Admissions N", B = "% FCB", C = "Retention",
@@ -134,7 +145,7 @@ gt(tbl, groupname_col = "Group") %>%
     align = "center",
     columns = everything()
   ) %>%
-  fmt_number(columns = c(F23, F24, Diff, A:E), decimals = 0, use_seps = TRUE) %>%
+  fmt_number(columns = c(F24, F25, Diff, A:E), decimals = 0, use_seps = TRUE) %>%
   fmt_percent(columns = Pct_of_Total, decimals = 1) %>%
   data_color(
     columns = Diff,
@@ -152,12 +163,12 @@ gt(tbl, groupname_col = "Group") %>%
   opt_row_striping()
 ```
 
-This table breaks down the growth in FCB upper-division enrollment between Fall 2023 and Fall 2024 into contributing factors, including admissions size and FCB composition, retention and graduation, internal transfers, and promotion to upper-division status. Each row shows how much each factor contributed to the headcount change of +501: a row sum of the Factors yields the color-coded Δ. (Data source: ASIR Cohort Analysis Report Builder.) *Want more details? \See the full decomposition method.\*
+This table breaks down the growth in FCB upper-division enrollment between Fall 2024 and Fall 2025 into contributing factors, including admissions size and FCB composition, retention and graduation, internal transfers, and promotion to upper-division status. Each row shows how much each factor contributed to the headcount change: a row sum of the factors yields the color-coded Δ. (Data source: ASIR Cohort Analysis Report Builder.) \*Want more details? \See the full decomposition method.\*
 
 # Waterfall visual
 
 ```{r}
-## Classic Waterfall F23 --> F24
+## Classic Waterfall F24 --> F25
 
 library(dplyr)
 library(tidyr)
@@ -170,8 +181,8 @@ library(gt)
 library(forcats)
 
 make_waterfall_topk_df <- function(fcbud_waterfall,
-                                   term1 = "F23",
-                                   term2 = "F24",
+                                   term1 = "F24",
+                                   term2 = "F25",
                                    top_k = 10,
                                    order_by = c("abs_diff","pct","diff"),
                                    verbose = TRUE) {
@@ -280,18 +291,20 @@ make_waterfall_topk_df <- function(fcbud_waterfall,
 
 wf_df <- make_waterfall_topk_df(
   fcbud_waterfall,
-  term1 = "F23", term2 = "F24",
+  term1 = "F24", term2 = "F25",
   top_k = 5,               # try 5, 8, 12, etc.
   order_by = "abs_diff",   # or "pct" / "diff"
   verbose = TRUE
 )
 
-# Custom order vector
-desired_order <- c("F23", "FT21/FT22 (S5)", "TR22/TR23 (S3)", "FT20/FT21 (S7)",
-                   "TR20/TR21 (S7)", "TR23/TR24 (S1)", "Other", "F24")
+# Dynamic order to preserve top-k ranking and keep start/end anchors
+middle_labels <- wf_df %>%
+  dplyr::filter(!label %in% c("F24", "F25", "Other")) %>%
+  dplyr::pull(label)
+desired_order <- c("F24", middle_labels, if ("Other" %in% wf_df$label) "Other", "F25")
 
 # Ensure labels match those in wf_df$label exactly
-wf_df$label <- factor(wf_df$label, levels = desired_order)
+wf_df$label <- factor(wf_df$label, levels = unique(desired_order))
 wf_df <- wf_df[order(as.numeric(wf_df$label)), ]
 
 plot_ly(
@@ -309,7 +322,7 @@ plot_ly(
   totals     = list(marker = list(color = "#6b6b6b"))
 ) %>%
   layout(
-    title = "FCB upper-division headcount<br><sup>Cohort contributions to change F23 → F24</sup>",
+    title = "FCB upper-division headcount<br><sup>Cohort contributions to change F24 → F25</sup>",
     yaxis = list(title = "Headcount", range = c(3000, NA)),
     xaxis = list(title = ""),
     showlegend = FALSE
@@ -350,7 +363,7 @@ p_stack <- ggplot(wf_long, aes(x = Label, y = Contribution, fill = Factor, text 
   geom_hline(yintercept = 0, color = "grey60", linewidth = 0.5) +
   scale_y_continuous(labels = comma) +
   labs(
-    title = "Decomposition of cohort contributions to change F23 → F24",
+    title = "Decomposition of cohort contributions to change F24 → F25",
     subtitle = "Positive (above zero) and negative (below zero)",
     x = NULL, y = "Headcount contribution", fill = "Factors"
   ) +
@@ -369,46 +382,32 @@ ggplotly(p_stack, tooltip = "text")
 
 ```{r}
 
-# 1. Remove FT25, FT26, TR25, TR26
+# 1. Remove cohorts beyond the backcast target window
 backcast_table <- backcast_table %>%
-  filter(!Cohort %in% c("FT25", "FT26", "TR25", "TR26"))
+  filter(!Cohort %in% c("FT26", "FT27", "TR26", "TR27"))
 
 # 2. Set NA forecasts to zero (all *_forecast columns)
 backcast_table <- backcast_table %>%
   mutate(across(ends_with("_forecast"), ~ifelse(is.na(.x), 0, .x)))
 
-# 3 Insert FT24 and TR24 expected values as of Spring 24 (emails)
-backcast_table <- backcast_table %>% mutate(F24_pre_forecast = case_when(Cohort == "FT24" ~ 1250, 
-                                                                         Cohort == "TR24" ~ 200, TRUE ~ F24_pre_forecast))
-backcast_table <- backcast_table %>% mutate(F24_ud_forecast = case_when(Cohort == "FT24" ~ 0, 
-                                                                        Cohort == "TR24" ~ 700, TRUE ~ F24_ud_forecast))
-backcast_table <- backcast_table %>% mutate(S25_pre_forecast = case_when(Cohort == "FT24" ~ 1400, 
-                                                                         Cohort == "TR24" ~ 50, TRUE ~ S25_pre_forecast))
-backcast_table <- backcast_table %>% mutate(S25_ud_forecast = case_when(Cohort == "FT24" ~ 0, 
-                                                                        Cohort == "TR24" ~ 850, TRUE ~ S25_ud_forecast))
+# 3. Insert FT25 and TR25 expected values as of Spring 25 (emails)
+backcast_table <- backcast_table %>% mutate(F25_pre_forecast = case_when(Cohort == "FT25" ~ 1110,
+                                                                         Cohort == "TR25" ~ 200, TRUE ~ F25_pre_forecast))
+backcast_table <- backcast_table %>% mutate(F25_ud_forecast = case_when(Cohort == "FT25" ~ 0,
+                                                                        Cohort == "TR25" ~ 850, TRUE ~ F25_ud_forecast))
+backcast_table <- backcast_table %>% mutate(S26_pre_forecast = case_when(Cohort == "FT25" ~ 1232,
+                                                                         Cohort == "TR25" ~ 75, TRUE ~ S26_pre_forecast))
+backcast_table <- backcast_table %>% mutate(S26_ud_forecast = case_when(Cohort == "FT25" ~ 2,
+                                                                        Cohort == "TR25" ~ 954, TRUE ~ S26_ud_forecast))
 
 # 4. Re-calculate delta columns
 backcast_table <- backcast_table %>%
     mutate(
-      F24_pre_error  = F24_pre_forecast - F24_pre_actual,
-      F24_ud_error   = F24_ud_forecast  - F24_ud_actual,
-      S25_pre_error  = S25_pre_forecast - S25_pre_actual,
-      S25_ud_error   = S25_ud_forecast  - S25_ud_actual
+      F25_pre_error  = F25_pre_forecast - F25_pre_actual,
+      F25_ud_error   = F25_ud_forecast  - F25_ud_actual,
+      S26_pre_error  = S26_pre_forecast - S26_pre_actual,
+      S26_ud_error   = S26_ud_forecast  - S26_ud_actual
     )
-
-# 4. FT17/TR19: recalculate Δ columns (all <= 0)
-backcast_table <- backcast_table %>%
-  mutate(
-    F24_pre_error  = ifelse(Cohort %in% c("FT17", "TR19"),
-                            F24_pre_forecast - F24_pre_actual, F24_pre_error),
-    F24_ud_error   = ifelse(Cohort %in% c("FT17", "TR19"),
-                            F24_ud_forecast - F24_ud_actual, F24_ud_error),
-    S25_pre_error  = ifelse(Cohort %in% c("FT17", "TR19"),
-                            S25_pre_forecast - S25_pre_actual, S25_pre_error),
-    S25_ud_error   = ifelse(Cohort %in% c("FT17", "TR19"),
-                            S25_ud_forecast - S25_ud_actual, S25_ud_error)
-  )
-
 
 # 5. Totals row (ignore NAs)
 # Remove any existing Total row before adding a new one
@@ -426,22 +425,22 @@ backcast_table <- bind_rows(backcast_table, totals_row)
 # 6. Build the gt table with your formatting and vertical lines after each Δ column
 backcast_gt <- gt(backcast_table) %>%
   tab_header(
-    title = md("**Backcast of F24 and S25 Headcount by Cohort**"),
-    subtitle = "Forecast vs. actuals for FCB Pre-Major and Upper-Division: uses information available in S24 only"
+    title = md("**Backcast of F25 and S26 Headcount by Cohort**"),
+    subtitle = "Forecast vs. actuals for FCB Pre-Major and Upper-Division: uses information available in S25 only"
   ) %>%
   cols_label(
-    F24_pre_actual    = "F24 Pre-Major (actual)",
-    F24_pre_forecast  = "F24 Pre-Major (model)",
-    F24_pre_error     = "Δ (model - actual)",
-    F24_ud_actual     = "F24 UD (actual)",
-    F24_ud_forecast   = "F24 UD (model)",
-    F24_ud_error      = "Δ (model - actual)",
-    S25_pre_actual    = "S25 Pre-Major (actual)",
-    S25_pre_forecast  = "S25 Pre-Major (model)",
-    S25_pre_error     = "Δ (model - actual)",
-    S25_ud_actual     = "S25 UD (actual)",
-    S25_ud_forecast   = "S25 UD (model)",
-    S25_ud_error      = "Δ (model - actual)"    
+    F25_pre_actual    = "F25 Pre-Major (actual)",
+    F25_pre_forecast  = "F25 Pre-Major (model)",
+    F25_pre_error     = "Δ (model - actual)",
+    F25_ud_actual     = "F25 UD (actual)",
+    F25_ud_forecast   = "F25 UD (model)",
+    F25_ud_error      = "Δ (model - actual)",
+    S26_pre_actual    = "S26 Pre-Major (actual)",
+    S26_pre_forecast  = "S26 Pre-Major (model)",
+    S26_pre_error     = "Δ (model - actual)",
+    S26_ud_actual     = "S26 UD (actual)",
+    S26_ud_forecast   = "S26 UD (model)",
+    S26_ud_error      = "Δ (model - actual)"
   ) %>%
   fmt_number(
     columns = where(is.numeric),
@@ -459,9 +458,9 @@ backcast_gt <- gt(backcast_table) %>%
   tab_style(
     style = cell_borders(sides = "right", color = "grey60", weight = px(2)),
     locations = list(
-      cells_body(columns = "F24_pre_error"),
-      cells_body(columns = "F24_ud_error"),
-      cells_body(columns = "S25_pre_error")
+      cells_body(columns = "F25_pre_error"),
+      cells_body(columns = "F25_ud_error"),
+      cells_body(columns = "S26_pre_error")
     )
   )
 
@@ -469,4 +468,5 @@ backcast_gt <- gt(backcast_table) %>%
 backcast_gt
 
 ```
-A "backcast" tests the accuracy of a forecast model. This table presents the results of a hypothetical forecast of Fall 2024 and Spring 2025 enrollments using only information that was available in Spring 2024. For the FT24 and TR24 cohorts, the table uses widely shared targets as-of Spring 2024 for Fall 2024 and a proxy forecast for S25. How would the forecast model have done in predicting enrollment one and two semesters ahead? Upper division headcount from continuing cohorts are forecasted with varying precision and much averaging out of +/- forecast errors across them. The earlier target of 900 TR24 transfers did not match the actual of 238 + 827 = 1065 in Fall 2024, and this contributes the largest share of forecast error. 
+
+A "backcast" tests the accuracy of a forecast model. This table presents the results of a hypothetical forecast of Fall 2025 and Spring 2026 enrollments using only information that was available in Spring 2025. For the FT25 and TR25 cohorts, the table uses widely shared targets as-of Spring 2025 for Fall 2025 and a proxy forecast for S26. How would the forecast model have done in predicting enrollment one and two semesters ahead? Upper division headcount from continuing cohorts are forecasted with varying precision. Overall upper division headcount forecasting is strengthened by averaging of +/- forecast errors across cohorts.

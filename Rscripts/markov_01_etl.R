@@ -82,8 +82,8 @@ for (file_path in files) {
 }
 
 # --- Save results ---
-#save(transition_matrices, transition_probabilities, 
-#     file = "~/_FCB/Summer25/Markov/Rdata/matrices.RData")
+save(transition_matrices, transition_probabilities,
+     file = here::here("_outputs/Rdata", "matrices.RData"))
 
 # --- Dashboard tables ---
 library(glue)
@@ -92,7 +92,7 @@ library(glue)
 cohorts <- c(paste0("FT", 17:26), paste0("TR", 19:26))
 terms <- c("F17", "S18", "F18", "S19", "F19", "S20", "F20", "S21",
            "F21", "S22", "F22", "S23", "F23", "S24", "F24", "S25", 
-           "F25", "S26", "F26")
+           "F25", "S26", "F26", "S27")
 
 term_starts <- c(
   FT17 = "F17", FT18 = "F18", FT19 = "F19", FT20 = "F20", FT21 = "F21", 
@@ -244,7 +244,6 @@ fcb_tot_df <- fcb_pre_df + fcb_ud_df
 # ---- save clean snapshot (no forecasts) ----
 save(fcb_pre_df, fcb_ud_df,
      file = here::here("_outputs/Rdata", "cohorts_noforecast_dfs.RData"))
-
 
 
 

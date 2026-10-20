@@ -2,8 +2,8 @@
 
 build_fcbud_waterfall <- function(fcb_ud_df,
                                   fcbud_decomp_table,
-                                  term1 = "F23",
-                                  term2 = "F24",
+                                  term1 = "F24",
+                                  term2 = "F25",
                                   term_starts = NULL,
                                   terms = colnames(fcb_ud_df),
                                   include_singletons = TRUE,
@@ -50,7 +50,11 @@ build_fcbud_waterfall <- function(fcb_ud_df,
     d1 <- fcbud_decomp_table[fcbud_decomp_table$Matrix == mat_prev, , drop = FALSE]
     d2 <- fcbud_decomp_table[fcbud_decomp_table$Matrix == mat_curr, , drop = FALSE]
     
-    if (nrow(d1) == 1L && nrow(d2) == 1L && y1 > 0 && y2 > 0) {
+    if (nrow(d1) != 1L || nrow(d2) != 1L) {
+      if (verbose) message(sprintf("… No decomp for %s/%s (missing %s or %s)", prev, curr, mat_prev, mat_curr))
+    } else if (y1 <= 0 || y2 <= 0) {
+      if (verbose) message(sprintf("… No decomp for %s/%s (FCBud headcount must be positive)", prev, curr))
+    } else {
       if (verbose) message(sprintf("✔ Decomp using %s vs %s", mat_prev, mat_curr))
       ldiff <- log(y2 / y1)
       if (is.finite(ldiff) && abs(ldiff) > .Machine$double.eps) {
@@ -64,8 +68,6 @@ build_fcbud_waterfall <- function(fcb_ud_df,
         contrib <- logs / ldiff * delta
         A <- contrib[1]; B <- contrib[2]; C <- contrib[3]; D <- contrib[4]; E <- contrib[5]
       }
-    } else if (verbose) {
-      message(sprintf("… No decomp for %s/%s (missing %s or %s)", prev, curr, mat_prev, mat_curr))
     }
     
     r <- r + 1L
@@ -164,10 +166,9 @@ build_fcbud_waterfall <- function(fcb_ud_df,
 fcbud_waterfall <- build_fcbud_waterfall(
   fcb_ud_df = fcb_ud_df,
   fcbud_decomp_table = fcbud_decomp_table,
-  term1 = "F23", term2 = "F24",
+  term1 = "F24", term2 = "F25",
   term_starts = term_starts, terms = terms,
   include_singletons = TRUE, verbose = TRUE
 )
 
 save.image(here::here("_outputs/Rdata/data_image1.RData"))
-
